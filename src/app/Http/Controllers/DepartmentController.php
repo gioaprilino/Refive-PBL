@@ -3,77 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Company;
 use App\Models\Department;
 
 class DepartmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    public function index() {
+        $departments = Department::all();
+        return view('departments.index', compact('departments'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function create() {
+        return view('departments.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
         $request->validate([
-            'code' => 'required|unique:departments',
             'name' => 'required',
+            'code' => 'required|unique:departments'
         ]);
-        return Department::create($request->only(['code', 'name']));
+
+        Department::create($request->all());
+        return redirect()->route('departments.index')->with('success', 'Departemen ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Department $department)
-    {
-        //
-        return $department;
+    public function edit(Department $department) {
+        return view('departments.edit', compact('department'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+    public function update(Request $request, Department $department) {
+        $department->update($request->all());
+        return redirect()->route('departments.index')->with('success', 'Departemen diperbarui.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Department $department)
-    {
-        //
-        $request->validate([
-            'code' => 'required|unique:departments,code,' . $department->id,
-            'name' => 'required',
-        ]);
-        $department->update($request->only(['code', 'name']));
-        return $department;
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Department $department)
-    {
-        //
+    public function destroy(Department $department) {
         $department->delete();
-        return response()->noContent();
+        return back()->with('success', 'Departemen dihapus.');
     }
 }

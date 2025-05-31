@@ -1,28 +1,33 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Department\Index as DepartmentIndex;
-use App\Livewire\Department\Create as DepartmentCreate;
-use App\Livewire\Department\Edit as DepartmentEdit;
-use App\Livewire\Position\Index as PositionIndex;
-use App\Livewire\Position\Create as PositionCreate;
-use App\Livewire\Position\Edit as PositionEdit;
-use App\Livewire\Employee\Index as EmployeeIndex;
-use App\Livewire\Employee\Create as EmployeeCreate;
-use App\Livewire\Employee\Edit as EmployeeEdit;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\PositionController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/departments', DepartmentIndex::class)->name('department.index');
-Route::get('/departments/create', DepartmentCreate::class)->name('department.create');
-Route::get('/departments/{id}/edit', DepartmentEdit::class)->name('department.edit');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/positions', PositionIndex::class)->name('position.index');
-Route::get('/positions/create', PositionCreate::class)->name('position.create');
-Route::get('/positions/{id}/edit', PositionEdit::class)->name('position.edit');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('/employees', EmployeeIndex::class)->name('employee.index');
-Route::get('/employees/create', EmployeeCreate::class)->name('employee.create');
-Route::get('/employees/{id}/edit', EmployeeEdit::class)->name('employee.edit');
+Route::middleware(['auth', 'role:admin_it'])->group(function () {
+     Route::resource('companies', CompanyController::class)->except(['show']);
+});
+
+
+Route::middleware(['auth', 'role:hrd,admin_hrd'])->group(function () {
+    Route::resource('departments', DepartmentController::class)->except(['show']);
+    Route::resource('positions', PositionController::class)->except(['show']);
+});
+
+require __DIR__.'/auth.php';
