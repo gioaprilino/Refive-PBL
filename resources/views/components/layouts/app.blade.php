@@ -93,8 +93,8 @@
             <span class="sitename">Tri Virya Nusantara</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
+            <p>Jl. Rangau - Duri Jl. Isenara No.km</p>
+            <p>Pematang Pudu, Kec. Mandau, Kabupaten Bengkalis, Riau 28784, Indonesia</p>
             <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
             <p><strong>Email:</strong> <span>info@example.com</span></p>
           </div>
@@ -143,7 +143,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Tri Virya Nusantara</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">PT Tri Virya Nusantara 2025</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
       </div>
     </div>
@@ -188,7 +188,6 @@
     }
   });
 </script>
-
 
     @livewireScripts
 </body>
