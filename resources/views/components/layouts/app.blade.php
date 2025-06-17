@@ -93,10 +93,13 @@
             <span class="sitename">Tri Virya Nusantara</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>Jl. Rangau - Duri Jl. Isenara No.km</p>
-            <p>Pematang Pudu, Kec. Mandau, Kabupaten Bengkalis, Riau 28784, Indonesia</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          @if ($contact)
+          <p>{{ $contact->address }}</p>
+          <p><strong>Phone:</strong> <span>{{ $contact->phone }}</span></p>
+          <p><strong>Email:</strong> <span>{{ $contact->email }}</span></p>
+          @else
+          <p>Belum ada informasi kontak.</p>
+          @endif
           </div>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
