@@ -19,4 +19,8 @@ class Recruitment extends Model {
     public function position() {
         return $this->belongsTo(Position::class);
     }
+
+    public function applicants() {
+        return $this->hasMany(Applicant::class);
+    }
 }

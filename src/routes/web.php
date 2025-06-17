@@ -9,6 +9,8 @@ use App\Http\Controllers\PositionController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\RecruitmentController;
+use App\Http\Controllers\ApplicantController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,6 +49,12 @@ Route::middleware(['auth', 'role:hrd'])->group(function () {
     Route::get('/leaves', [\App\Http\Controllers\LeaveController::class, 'index'])->name('leaves.index');
     Route::patch('/leaves/{leave}/approve', [\App\Http\Controllers\LeaveController::class, 'approve'])->name('leaves.approve');
     Route::patch('/leaves/{leave}/reject', [\App\Http\Controllers\LeaveController::class, 'reject'])->name('leaves.reject');
+
+    Route::resource('recruitments', RecruitmentController::class)->except(['show']);
+    Route::get('/recruitments/{recruitment}/applicants', [RecruitmentController::class, 'index'])->name('recruitments.index');
+    Route::post('recruitments/{recruitment}/applicants', [\App\Http\Controllers\ApplicantController::class, 'store'])->name('applicants.store');
+    Route::patch('applicants/{applicant}', [\App\Http\Controllers\ApplicantController::class, 'update'])->name('applicants.update');
+    Route::delete('applicants/{applicant}', [\App\Http\Controllers\ApplicantController::class, 'destroy'])->name('applicants.destroy');
 });
 
 
