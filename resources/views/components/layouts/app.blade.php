@@ -51,10 +51,10 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{{ route('home') }}" class="active">Beranda</a></li>
-          <li><a href="#about">Tentang Kami</a></li>
-          <li><a href="#services">Layanan</a></li>
-          <li><a href="#portfolio">Proyek</a></li>
-          <li><a href="#team">Tim</a></li>
+          <li><a href="{{ route('home') }}#about">Tentang Kami</a></li>
+          <li><a href="{{ route('home') }}#services">Layanan</a></li>
+          <li><a href="{{ route('home') }}#portfolio">Proyek</a></li>
+          <li><a href="{{ route('home') }}#team">Tim</a></li>
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
@@ -72,7 +72,7 @@
               <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="{{ route('home') }}#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

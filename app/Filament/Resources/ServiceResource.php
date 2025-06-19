@@ -68,10 +68,8 @@ class ServiceResource extends Resource
                TextColumn::make('title'),
                ImageColumn::make('photo'),
                TextColumn::make('short_desc')
-                    ->label('Short Description')  
+                    ->label('Short Description')
                     ->limit(50),
-                TextColumn::make('description')
-                      ->limit(50),
                BooleanColumn::make('status'),
             ])
             ->filters([

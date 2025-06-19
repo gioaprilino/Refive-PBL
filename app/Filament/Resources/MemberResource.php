@@ -50,8 +50,8 @@ class MemberResource extends Resource
                     ->label('Link LinkedIn')
                     ->placeholder('Masukkan link LinkedIn'),
                 FileUpload::make('image')->nullable()
+                    ->avatar()
                     ->label('Foto')
-                    ->image()
                     ->disk('public')
                     ->directory('members')
                     ->visibility('public')

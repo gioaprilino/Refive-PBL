@@ -19,7 +19,7 @@
 
 <div class="container">
     <div class="row">
-  
+
     <div class="col-lg-4">
       <div class="services-list d-flex flex-column gap-3">
           @foreach ($services as $srv)

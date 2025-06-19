@@ -14,4 +14,9 @@ class Service extends Model
         'short_desc',
         'description',
     ];
+
+    public function projects()
+    {
+    return $this->hasMany(Project::class);
+    }
 }

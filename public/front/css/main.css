@@ -11,7 +11,7 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
+:root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #273d4e; /* Color for headings, subheadings and title throughout the website */
@@ -1488,6 +1488,11 @@ section,
 
 .portfolio .portfolio-content img {
   transition: 0.3s;
+  width: 350px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px; /* opsional, biar lebih rapi */
 }
 
 .portfolio .portfolio-content .portfolio-info {
