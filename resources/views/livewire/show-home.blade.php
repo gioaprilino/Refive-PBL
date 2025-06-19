@@ -16,7 +16,7 @@
 
     </section><!-- /Hero Section -->
 
-    <!-- About Section -->
+    {{-- <!-- About Section -->
     <section id="about" class="about section">
 
       <div class="container">
@@ -54,7 +54,8 @@
 
       </div>
 
-    </section><!-- /About Section -->
+    </section><!-- /About Section --> --}}
+    @livewire('show-about')
 
     <!-- Stats Section -->
     <section id="stats" class="stats section light-background">
