@@ -32,10 +32,6 @@
                 style="width: 100%; height: 300px; object-fit: cover;"
                 alt=""
               >
-              <a
-                href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
-                class="glightbox pulsating-play-btn"
-              ></a>
             </div>
           @endif
         </div>
