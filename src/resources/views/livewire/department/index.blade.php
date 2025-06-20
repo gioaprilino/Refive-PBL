@@ -1,4 +1,8 @@
+
 <div class="p-6">
+    {{-- Tambahkan form create di sini --}}
+    <livewire:department.create />
+
     <div class="flex justify-between mb-4">
         <input wire:model="search" type="text" placeholder="Cari departemen..." class="border rounded p-2">
         <a href="{{ route('department.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah</a>

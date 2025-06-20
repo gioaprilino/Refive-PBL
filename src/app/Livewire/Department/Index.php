@@ -45,6 +45,6 @@ class Index extends Component
             ->orderBy($this->sortField, $this->sortDirection)
             ->paginate(10);
 
-        return view('livewire.department.index', compact('departments'))->layout('components.layouts.app');
+        return view('livewire.department.index', compact('departments'));
     }
 }

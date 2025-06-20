@@ -4,7 +4,6 @@ namespace App\Livewire\Department;
 
 use Livewire\Component;
 use App\Models\Department;
-
 class Create extends Component
 {
     public $code, $name;
