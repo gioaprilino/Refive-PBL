@@ -7,6 +7,8 @@ use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages;
+use Filament\Navigation\NavigationItem;
+use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -30,9 +32,11 @@ class AdminPanelProvider extends PanelProvider
         ->default()
         ->id('admin')
         ->path('admin')
+        ->login()
         ->brandName('Tri Virya Nusantara')
         ->favicon(asset('/front/img/LOGO TVN.png'))
-        ->login()
+        ->sidebarCollapsibleOnDesktop()
+        ->breadcrumbs(false)
         ->colors([
             'primary' => Color::Blue,
             ])
@@ -59,6 +63,20 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+
+            ->navigationItems([
+            NavigationItem::make('Tri Virya Nusantara')
+                ->url('http://localhost:8000', shouldOpenInNewTab: true)
+                ->icon('heroicon-o-eye')
+                ->group('View Site')
+                ->sort(3),
+            NavigationItem::make('dashboard')
+                ->label(fn (): string => __('filament-panels::pages/dashboard.title'))
+                ->url(fn (): string => Dashboard::getUrl())
+                ->isActiveWhen(fn () => request()->routeIs('filament.admin.pages.dashboard')),
+        ]);
+
+
     }
 }

@@ -22,6 +22,8 @@ class ContactMessageResource extends Resource
 
     protected static ?string $activeNavigationIcon = 'heroicon-o-envelope-open';
 
+    protected static ?string $navigationBadgeTooltip = 'Incoming Messages';
+
     public static function getNavigationBadge(): ?string
 {
     return static::getModel()::count();

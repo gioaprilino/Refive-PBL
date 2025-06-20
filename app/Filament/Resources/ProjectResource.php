@@ -82,14 +82,16 @@ class ProjectResource extends Resource
                 Tables\Columns\ImageColumn::make('images')
                     ->stacked(),
                 Tables\Columns\TextColumn::make('title')
+                    ->limit(10)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('service.title')
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('service.title'),
                 Tables\Columns\TextColumn::make('project_status')
                     ->sortable(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('service_id')
+                    ->label('Kategori Layanan')
+                    ->relationship('service', 'title'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
