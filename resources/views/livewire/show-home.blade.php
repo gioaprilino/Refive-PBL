@@ -1,6 +1,6 @@
 <main class="main">
 
-    <!-- Hero Section -->
+    {{-- <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
       <img src="{{asset('/front/img/hero-bg.jpg')}}" alt="" data-aos="fade-in">
@@ -14,8 +14,9 @@
         </div>
       </div>
 
-    </section><!-- /Hero Section -->
+    </section><!-- /Hero Section --> --}}
 
+<<<<<<< HEAD
     <!-- About Section -->
     <section id="about" class="about section">
 
@@ -103,11 +104,30 @@
             </div>
           </div><!-- End Stats Item -->
 
-        </div>
+=======
+    @livewire('show-hero')
+    @livewire('show-about')
+    {{-- @livewire('client-section') --}}
 
+    <!-- Clients Section -->
+    <section id="clients" class="clients section light-background">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          @foreach ($clients as $client)
+            <div class="col-xl-2 col-md-3 col-6 client-logo">
+              <img src="{{ asset('storage/' . $client->image) }}" class="img-fluid" alt="{{ $client->name }}">
+            </div><!-- End Client Item -->
+          @endforeach
+>>>>>>> 22434f8 (feat:changes front looks)
+        </div>
       </div>
+<<<<<<< HEAD
 
     </section><!-- /Stats Section -->
+=======
+    </section><!-- /Clients Section -->
+
+>>>>>>> 22434f8 (feat:changes front looks)
 
     <!-- Services Section -->
     <section id="services" class="services section">
@@ -750,7 +770,7 @@
         <p>Necessitatibus eius consequatur</p>
       </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
           <div class="col-lg-6 ">
@@ -758,36 +778,10 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-              <div class="row gy-4">
+            <livewire:contact-form />
+          </div>
 
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
 
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
 
         </div>
 

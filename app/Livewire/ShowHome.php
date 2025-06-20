@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Service;
 use App\Models\Member;
+use App\Models\Client;
 
 class ShowHome extends Component
 {
@@ -15,6 +16,7 @@ class ShowHome extends Component
         return view('livewire.show-home', [
             'services' => $services,
             'members' => $member,
+            'clients' => Client::all(),
         ]);
 
     }
