@@ -23,6 +23,8 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
 {
+
+
     public function panel(Panel $panel): Panel
     {
         return $panel
@@ -76,7 +78,6 @@ class AdminPanelProvider extends PanelProvider
                 ->url(fn (): string => Dashboard::getUrl())
                 ->isActiveWhen(fn () => request()->routeIs('filament.admin.pages.dashboard')),
         ]);
-
 
     }
 }
