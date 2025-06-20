@@ -21,6 +21,10 @@ class HeroResource extends Resource
 
     protected static ?string $navigationGroup = 'Kontent Situs';
 
+    protected static ?string $navigationLabel = 'Headings';
+
+    protected static ?int $navigationSort = 1;
+
     public static function form(Form $form): Form
     {
         return $form

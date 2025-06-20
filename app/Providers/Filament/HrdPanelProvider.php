@@ -11,7 +11,6 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
-use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -19,29 +18,22 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class AdminPanelProvider extends PanelProvider
+class HrdPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-        ->renderHook('scripts.end',
-        fn () => '<script src="' . asset('js/contact-autocomplete.js') . '"></script>' .
-        '<meta name="rapidapi-key" content="' . env('RAPIDAPI_KEY') . '">')
-        ->default()
-        ->id('admin')
-        ->path('admin')
-        ->brandName('Tri Virya Nusantara')
-        ->favicon(asset('/front/img/LOGO TVN.png'))
-        ->login()
-        ->colors([
-            'primary' => Color::Blue,
+            ->id('hrd')
+            ->path('hrd')
+            ->colors([
+                'primary' => Color::Rose,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(in: app_path('Filament/Hrd/Resources'), for: 'App\\Filament\\Hrd\\Resources')
+            ->discoverPages(in: app_path('Filament/Hrd/Pages'), for: 'App\\Filament\\Hrd\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Hrd/Widgets'), for: 'App\\Filament\\Hrd\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,

@@ -21,6 +21,8 @@ class ProjectResource extends Resource
 
     protected static ?string $navigationGroup = 'Kontent Situs';
 
+    protected static ?int $navigationSort = 5;
+
     public static function form(Form $form): Form
     {
         return $form

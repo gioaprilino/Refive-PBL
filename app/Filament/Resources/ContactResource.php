@@ -28,6 +28,10 @@ class ContactResource extends Resource
 
     protected static ?string $navigationGroup = 'Kontent Situs';
 
+    protected static ?string $navigationLabel = 'Addresses';
+
+    protected static ?int $navigationSort = 7;
+
     public static function form(Form $form): Form
     {
         return $form

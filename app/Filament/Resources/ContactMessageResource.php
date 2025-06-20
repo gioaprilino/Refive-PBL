@@ -18,7 +18,14 @@ class ContactMessageResource extends Resource
 {
     protected static ?string $model = ContactMessage::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-envelope';
+
+    protected static ?string $activeNavigationIcon = 'heroicon-o-envelope-open';
+
+    public static function getNavigationBadge(): ?string
+{
+    return static::getModel()::count();
+}
 
     public static function form(Form $form): Form
     {
