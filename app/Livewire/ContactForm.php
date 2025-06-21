@@ -28,7 +28,7 @@ class ContactForm extends Component
             'message' => $this->message,
         ]);
 
-        Mail::to('gioaprilino96@gmail.com')->send(new ContactMessageMail($contact));
+        Mail::to('gioaprilino91@gmail.com')->send(new ContactMessageMail($contact));
 
         session()->flash('success', 'Your message has been sent. Thank you!');
         $this->reset(); // reset input fields

@@ -24,6 +24,8 @@ class ContactMessageResource extends Resource
 
     protected static ?string $navigationBadgeTooltip = 'Incoming Messages';
 
+    protected static ?string $navigationLabel = 'Messages';
+
     public static function getNavigationBadge(): ?string
 {
     return static::getModel()::count();
@@ -50,11 +52,12 @@ class ContactMessageResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->requiresConfirmation(),
                 ]),
             ]);
     }

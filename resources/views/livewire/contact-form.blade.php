@@ -1,6 +1,6 @@
 <main>
     <form wire:submit.prevent="submit" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-        <div class="row gy-4">
+        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
 
             <div class="col-md-6">
                 <input type="text" wire:model.defer="name" class="form-control" placeholder="Your Name">

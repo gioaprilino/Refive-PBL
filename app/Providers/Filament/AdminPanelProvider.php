@@ -73,10 +73,6 @@ class AdminPanelProvider extends PanelProvider
                 ->icon('heroicon-o-eye')
                 ->group('View Site')
                 ->sort(3),
-            NavigationItem::make('dashboard')
-                ->label(fn (): string => __('filament-panels::pages/dashboard.title'))
-                ->url(fn (): string => Dashboard::getUrl())
-                ->isActiveWhen(fn () => request()->routeIs('filament.admin.pages.dashboard')),
         ]);
 
     }
