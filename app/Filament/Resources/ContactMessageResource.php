@@ -72,7 +72,9 @@ class ContactMessageResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\Messages::route('/'),
+            'index' => Pages\ListContactMessages::route('/'),
+            'create' => Pages\CreateContactMessage::route('/create'),
+            'edit' => Pages\EditContactMessage::route('/{record}/edit'),
         ];
     }
 }
