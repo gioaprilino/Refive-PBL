@@ -26,6 +26,7 @@ class ContactMessageResource extends Resource
 
     protected static ?string $navigationLabel = 'Messages';
 
+
     public static function getNavigationBadge(): ?string
 {
     return static::getModel()::count();
@@ -72,9 +73,7 @@ class ContactMessageResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListContactMessages::route('/'),
-            'create' => Pages\CreateContactMessage::route('/create'),
-            'edit' => Pages\EditContactMessage::route('/{record}/edit'),
+            'index' => Pages\Messages::route('/'),
         ];
     }
 }

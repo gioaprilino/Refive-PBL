@@ -3,16 +3,11 @@
 namespace App\Filament\Resources\ContactMessageResource\Pages;
 
 use App\Filament\Resources\ContactMessageResource;
-use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
+use Filament\Resources\Pages\Page;
 
-class ListContactMessages extends ListRecords
+class Messages extends Page
 {
     protected static string $resource = ContactMessageResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-        ];
-    }
+    protected static string $view = 'filament.resources.contact-message-resource.pages.messages';
 }
