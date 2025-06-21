@@ -2,9 +2,9 @@
 
 namespace App\Filament\Hrd\Resources;
 
-use App\Filament\Hrd\Resources\DepartmentResource\Pages;
-use App\Filament\Hrd\Resources\DepartmentResource\RelationManagers;
-use App\Models\Department;
+use App\Filament\Hrd\Resources\PositionResource\Pages;
+use App\Filament\Hrd\Resources\PositionResource\RelationManagers;
+use App\Models\Position;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class DepartmentResource extends Resource
+class PositionResource extends Resource
 {
-    protected static ?string $model = Department::class;
+    protected static ?string $model = Position::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -24,8 +24,10 @@ class DepartmentResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->required(),
-                Forms\Components\TextInput::make('code')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Select::make('department_id')
+                    ->relationship('department', 'code')
                     ->required(),
             ]);
     }
@@ -34,8 +36,10 @@ class DepartmentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('code'),
+                  Tables\Columns\TextColumn::make('name')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('department.code')
             ])
             ->filters([
                 //
@@ -60,9 +64,9 @@ class DepartmentResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListDepartments::route('/'),
-            'create' => Pages\CreateDepartment::route('/create'),
-            'edit' => Pages\EditDepartment::route('/{record}/edit'),
+            'index' => Pages\ListPositions::route('/'),
+            'create' => Pages\CreatePosition::route('/create'),
+            'edit' => Pages\EditPosition::route('/{record}/edit'),
         ];
     }
 }
