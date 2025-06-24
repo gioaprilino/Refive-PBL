@@ -81,11 +81,6 @@ class EmployeeResource extends Resource
                         'resigned' => 'Resign',
                         'Retired' => 'Pensiun',
                     ])
-                    ->color([
-                        'active' => 'success',
-                        'resigned' => 'danger',
-                        'Retired' => 'warning',
-                    ])
                     ->sortable(),
             ])
             ->filters([
