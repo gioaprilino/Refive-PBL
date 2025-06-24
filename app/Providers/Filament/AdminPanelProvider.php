@@ -39,8 +39,6 @@ class AdminPanelProvider extends PanelProvider
         ->favicon(asset('/front/img/LOGO TVN.png'))
         ->sidebarCollapsibleOnDesktop()
         ->breadcrumbs(false)
-        ->authGuard('web')
-        ->authPasswordBroker('users')
         ->colors([
             'primary' => Color::Blue,
             ])
@@ -75,9 +73,7 @@ class AdminPanelProvider extends PanelProvider
                 ->icon('heroicon-o-eye')
                 ->group('View Site')
                 ->sort(3),
-            
         ]);
-        
 
     }
 }
