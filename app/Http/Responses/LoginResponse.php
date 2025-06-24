@@ -22,7 +22,7 @@ class LoginResponse extends \Filament\Http\Responses\Auth\LoginResponse
 
     // Jika hrd login di panel admin, redirect ke panel hrd
     if ($user->role === 'hrd' && $currentPanel === 'admin') {
-        return redirect()->to(EmployeeResource::getUrl('index', panel: 'hrd'));
+        return redirect()->to(DepartmentResource::getUrl('index', panel: 'hrd'));
     }
 
     // Jika role dan panel sudah sesuai, redirect seperti biasa
