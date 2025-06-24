@@ -32,7 +32,7 @@ class DepartmentResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('code')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(3),
             ]);
     }
 
