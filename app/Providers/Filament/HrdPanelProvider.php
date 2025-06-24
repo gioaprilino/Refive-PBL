@@ -25,6 +25,7 @@ class HrdPanelProvider extends PanelProvider
         return $panel
             ->id('hrd')
             ->path('hrd')
+            ->login()
             ->colors([
                 'primary' => Color::Rose,
             ])
