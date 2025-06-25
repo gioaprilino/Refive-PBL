@@ -27,6 +27,16 @@ class EmployeeResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\FileUpload::make('profile')->nullable()
+                    ->avatar()
+                    ->label('Foto')
+                    ->disk('public')
+                    ->directory('hrd/employees')
+                    ->visibility('public')
+                    ->enableOpen()
+                    ->enableDownload()
+                    ->acceptedFileTypes(['image/*'])
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
@@ -34,6 +44,13 @@ class EmployeeResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('password')
+                    ->password()
+                    ->maxLength(255)
+                    ->dehydrateStateUsing(fn ($state) => $state ? bcrypt($state) : null)
+                    ->dehydrated(fn ($state) => filled($state))
+                    ->required(fn ($livewire) => $livewire instanceof \App\Filament\Hrd\Resources\EmployeeResource\Pages\CreateEmployee)
+                    ->nullable(),
                 Forms\Components\TextInput::make('phone')
                     ->tel()
                     ->required()
@@ -45,8 +62,7 @@ class EmployeeResource extends Resource
                         'female' => 'Female',
                     ]),
                 Forms\Components\Textarea::make('address')
-                    ->required()
-                    ->columnSpanFull(),
+                    ->required(),
                 Forms\Components\Select::make('department_id')
                     ->required()
                     ->relationship('department', 'code'),
@@ -62,7 +78,7 @@ class EmployeeResource extends Resource
                         'Retired' => 'Pensiun',
                     ])
                     ->required(),
-            ]);
+                ]);
     }
 
     public static function table(Table $table): Table

@@ -59,7 +59,6 @@ class MemberResource extends Resource
                     ->disk('public')
                     ->directory('members')
                     ->visibility('public')
-                    ->preserveFilenames()
                     ->enableOpen()
                     ->enableDownload()
                     ->acceptedFileTypes(['image/*']),
