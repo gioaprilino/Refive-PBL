@@ -31,7 +31,7 @@ class EmployeeResource extends Resource
                     ->avatar()
                     ->label('Foto')
                     ->disk('public')
-                    ->directory('hrd/employees')
+                    ->directory('employees')
                     ->visibility('public')
                     ->enableOpen()
                     ->enableDownload()
@@ -85,6 +85,9 @@ class EmployeeResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('profile')
+                    ->label('Profil')
+                    ->size(50),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('department.code')
@@ -108,6 +111,7 @@ class EmployeeResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

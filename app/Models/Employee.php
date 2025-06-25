@@ -24,11 +24,20 @@ class Employee extends Model
         'status',
     ];
 
+    protected static function booted()
+    {
+        static::deleting(function ($employee) {
+            if ($employee->user_id) {
+                $employee->user()->delete();
+            }
+        });
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    
+
     public function position()
     {
         return $this->belongsTo(Position::class);
