@@ -36,41 +36,41 @@ class AdminPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
             ->breadcrumbs(false)
             ->colors([
-                    'primary' => Color::Blue,
-                ])
+                'primary' => Color::Blue,
+            ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
-                    Pages\Dashboard::class,
-                ])
+                Pages\Dashboard::class,
+            ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                    Widgets\AccountWidget::class,
-                    Widgets\FilamentInfoWidget::class,
-                ])
+                Widgets\AccountWidget::class,
+                Widgets\FilamentInfoWidget::class,
+            ])
             ->middleware([
-                    EncryptCookies::class,
-                    AddQueuedCookiesToResponse::class,
-                    StartSession::class,
-                    AuthenticateSession::class,
-                    ShareErrorsFromSession::class,
-                    VerifyCsrfToken::class,
-                    SubstituteBindings::class,
-                    DisableBladeIconComponents::class,
-                    DispatchServingFilamentEvent::class,
-                    \App\Http\Middleware\PanelRoleMiddleware::class,
-                ])
+                EncryptCookies::class,
+                AddQueuedCookiesToResponse::class,
+                StartSession::class,
+                AuthenticateSession::class,
+                ShareErrorsFromSession::class,
+                VerifyCsrfToken::class,
+                SubstituteBindings::class,
+                DisableBladeIconComponents::class,
+                DispatchServingFilamentEvent::class,
+                \App\Http\Middleware\PanelRoleMiddleware::class,
+            ])
             ->authMiddleware([
-                    Authenticate::class,
-                ])
+                Authenticate::class,
+            ])
 
             ->navigationItems([
-                    NavigationItem::make('Tri Virya Nusantara')
-                        ->url('http://localhost:8000', shouldOpenInNewTab: true)
-                        ->icon('heroicon-o-eye')
-                        ->group('View Site')
-                        ->sort(3),
-                ]);
+                NavigationItem::make('Tri Virya Nusantara')
+                    ->url('http://localhost:8000', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-eye')
+                    ->group('View Site')
+                    ->sort(3),
+            ]);
 
     }
 }
