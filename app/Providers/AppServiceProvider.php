@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use Filament\Http\Responses\Auth\Contracts\LoginResponse;
-use Illuminate\Support\ServiceProvider;
 use App\Models\Service;
+use Filament\Http\Responses\Auth\Contracts\LoginResponse;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,8 +15,8 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(
-        LoginResponse::class,
-        \App\Http\Responses\LoginResponse::class
+            LoginResponse::class,
+            \App\Http\Responses\LoginResponse::class
         );
     }
 
@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
-        $view->with('services', Service::all());
-    });
+            $view->with('services', Service::all());
+        });
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use App\Models\Project;
 use App\Models\Contact;
+use App\Models\Project;
+use Livewire\Component;
 
 class ProjectDetail extends Component
 {
@@ -14,6 +14,7 @@ class ProjectDetail extends Component
     {
         $this->project = Project::with('service')->findOrFail($id);
     }
+
     public function render()
     {
         return view('livewire.project-detail')

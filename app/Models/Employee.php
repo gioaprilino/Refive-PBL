@@ -2,11 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\Position;
-use App\Models\Department;
-use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
@@ -47,5 +44,4 @@ class Employee extends Model
     {
         return $this->belongsTo(Department::class);
     }
-
 }

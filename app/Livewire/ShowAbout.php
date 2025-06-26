@@ -2,8 +2,8 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\About;
+use Livewire\Component;
 
 class ShowAbout extends Component
 {

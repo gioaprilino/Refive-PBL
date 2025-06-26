@@ -3,9 +3,8 @@
 namespace App\Filament\Hrd\Resources\EmployeeResource\Pages;
 
 use App\Filament\Hrd\Resources\EmployeeResource;
-use Filament\Actions;
-use Filament\Resources\Pages\CreateRecord;
 use App\Models\User;
+use Filament\Resources\Pages\CreateRecord;
 
 class CreateEmployee extends CreateRecord
 {

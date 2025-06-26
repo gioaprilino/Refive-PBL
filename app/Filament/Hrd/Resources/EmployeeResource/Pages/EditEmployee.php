@@ -3,9 +3,9 @@
 namespace App\Filament\Hrd\Resources\EmployeeResource\Pages;
 
 use App\Filament\Hrd\Resources\EmployeeResource;
+use App\Models\User;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
-use App\Models\User;
 
 class EditEmployee extends EditRecord
 {
@@ -28,7 +28,7 @@ class EditEmployee extends EditRecord
             if ($user) {
                 $user->name = $data['name'];
                 $user->email = $data['email'];
-                if (!empty($data['password'])) {
+                if (! empty($data['password'])) {
                     $user->password = bcrypt($data['password']);
                 }
                 $user->save();

@@ -3,15 +3,12 @@
 namespace App\Filament\Hrd\Resources;
 
 use App\Filament\Hrd\Resources\EmployeeResource\Pages;
-use App\Filament\Hrd\Resources\EmployeeResource\RelationManagers;
 use App\Models\Employee;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class EmployeeResource extends Resource
 {
@@ -78,7 +75,7 @@ class EmployeeResource extends Resource
                         'Retired' => 'Pensiun',
                     ])
                     ->required(),
-                ]);
+            ]);
     }
 
     public static function table(Table $table): Table

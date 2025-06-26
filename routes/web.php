@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Livewire\ProjectDetail;
 use App\Livewire\ShowHome;
 use App\Livewire\ShowService;
-use App\Livewire\ProjectDetail;
+use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('welcome');
