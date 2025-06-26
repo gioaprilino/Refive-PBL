@@ -51,7 +51,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{{ route('home') }}" class="active">Beranda</a></li>
-          <li><a href="{{ route('home') }}#about">Tentang Kami</a></li>
+            <li><a href="{{ route('home') }}#about">Tentang Kami</a></li>
           <li><a href="{{ route('home') }}#services">Layanan</a></li>
           <li><a href="{{ route('home') }}#portfolio">Proyek</a></li>
           <li><a href="{{ route('home') }}#team">Tim</a></li>
