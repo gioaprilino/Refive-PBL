@@ -210,6 +210,6 @@
     @livewireScripts
 </body>
 
-{{-- Tes Fitur --}}
+{{-- Tes Fitur Automasi --}}
 
 </html>
