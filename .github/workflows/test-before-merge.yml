@@ -1,0 +1,24 @@
+name: Automasi Testing Sebelum Merge
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install HTMLHint & Stylelint
+        run: |
+          npm install -g htmlhint stylelint
+
+      - name: Periksa HTML
+        run: htmlhint "**/*.html"
+
+      - name: Periksa CSS
+        run: stylelint "**/*.css"
