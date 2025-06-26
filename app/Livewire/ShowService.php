@@ -2,8 +2,8 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\Service;
+use Livewire\Component;
 
 class ShowService extends Component
 {
@@ -13,7 +13,7 @@ class ShowService extends Component
     {
         $this->service = Service::findOrFail($id);
     }
-    
+
     public function render()
     {
         return view('livewire.show-service', [

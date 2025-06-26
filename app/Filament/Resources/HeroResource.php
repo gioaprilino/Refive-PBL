@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\HeroResource\Pages;
-use App\Filament\Resources\HeroResource\RelationManagers;
 use App\Models\Hero;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class HeroResource extends Resource
 {
@@ -38,11 +35,11 @@ class HeroResource extends Resource
                 Forms\Components\FileUpload::make('background_image')
                     ->image()
                     ->disk('public')
-                        ->directory('background')
-                        ->visibility('public')
-                        ->enableOpen()
-                        ->enableDownload()
-                        ->acceptedFileTypes(['image/*']),
+                    ->directory('background')
+                    ->visibility('public')
+                    ->enableOpen()
+                    ->enableDownload()
+                    ->acceptedFileTypes(['image/*']),
             ]);
     }
 

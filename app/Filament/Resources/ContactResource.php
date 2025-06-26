@@ -3,22 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ContactResource\Pages;
-use App\Filament\Resources\ContactResource\RelationManagers;
 use App\Models\Contact;
-use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Tables\Actions;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\BulkActionGroup;
-use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
-
+use Filament\Tables\Table;
 
 class ContactResource extends Resource
 {
@@ -36,17 +27,17 @@ class ContactResource extends Resource
     {
         return $form
             ->schema([
-            TextInput::make('address')
-                ->label('Alamat')
-                ->required()
-                ->extraAttributes(['x-init' => 'initAddressAutocomplete($el)']),
-            TextInput::make('email')
-                ->label('Email')
-                ->email()
-                ->required(),
-            TextInput::make('phone')
-                ->label('Telepon')
-                ->required(),
+                TextInput::make('address')
+                    ->label('Alamat')
+                    ->required()
+                    ->extraAttributes(['x-init' => 'initAddressAutocomplete($el)']),
+                TextInput::make('email')
+                    ->label('Email')
+                    ->email()
+                    ->required(),
+                TextInput::make('phone')
+                    ->label('Telepon')
+                    ->required(),
             ]);
     }
 
@@ -54,9 +45,9 @@ class ContactResource extends Resource
     {
         return $table
             ->columns([
-            TextColumn::make('address'),
-            TextColumn::make('email'),
-            TextColumn::make('phone'),
+                TextColumn::make('address'),
+                TextColumn::make('email'),
+                TextColumn::make('phone'),
             ])
             ->filters([
                 //

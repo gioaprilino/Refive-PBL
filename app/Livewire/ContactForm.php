@@ -2,15 +2,20 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
+use App\Mail\ContactMessageMail;
 use App\Models\ContactMessage;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactMessageMail;
+use Livewire\Component;
 
 class ContactForm extends Component
 {
+    public $name;
 
-    public $name, $email, $subject, $message;
+    public $email;
+
+    public $subject;
+
+    public $message;
 
     public function submit()
     {
@@ -33,6 +38,7 @@ class ContactForm extends Component
         session()->flash('success', 'Your message has been sent. Thank you!');
         $this->reset(); // reset input fields
     }
+
     public function render()
     {
         return view('livewire.contact-form');

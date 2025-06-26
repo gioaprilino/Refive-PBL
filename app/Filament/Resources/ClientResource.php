@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ClientResource\Pages;
-use App\Filament\Resources\ClientResource\RelationManagers;
 use App\Models\Client;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ClientResource extends Resource
 {
@@ -23,18 +20,17 @@ class ClientResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
-
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-            Forms\Components\TextInput::make('name')->label('Client Name')->nullable(),
-            Forms\Components\FileUpload::make('image')
-            ->label('Logo Client')
-            ->image()
-            ->directory('clients')
-            ->disk('public')
-            ->required(),
+                Forms\Components\TextInput::make('name')->label('Client Name')->nullable(),
+                Forms\Components\FileUpload::make('image')
+                    ->label('Logo Client')
+                    ->image()
+                    ->directory('clients')
+                    ->disk('public')
+                    ->required(),
             ]);
     }
 

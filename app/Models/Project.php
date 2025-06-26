@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'title',
         'description',
@@ -24,6 +25,6 @@ class Project extends Model
 
     public function service()
     {
-    return $this->belongsTo(Service::class);
+        return $this->belongsTo(Service::class);
     }
 }

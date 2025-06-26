@@ -2,16 +2,20 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\Contact;
 use App\Services\MapService;
+use Livewire\Component;
 
 class ContactMap extends Component
 {
     public $lat;
+
     public $lng;
+
     public $address;
+
     public $email;
+
     public $phone;
 
     public function mount(MapService $mapService)
@@ -25,7 +29,7 @@ class ContactMap extends Component
             $this->lat = $coords['lat'] ?? 1.26332;
             $this->lng = $coords['lng'] ?? 101.18264;
         }
-        
+
     }
 
     public function render()

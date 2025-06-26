@@ -17,7 +17,7 @@ class MapService
 
         if ($response->successful()) {
             $data = $response->json();
-            if (!empty($data['data'][0]['latitude']) && !empty($data['data'][0]['longitude'])) {
+            if (! empty($data['data'][0]['latitude']) && ! empty($data['data'][0]['longitude'])) {
                 return [
                     'lat' => $data['data'][0]['latitude'],
                     'lng' => $data['data'][0]['longitude'],

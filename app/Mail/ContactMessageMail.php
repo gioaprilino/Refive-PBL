@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -28,7 +27,6 @@ class ContactMessageMail extends Mailable
         return $this->subject('New Contact Message')
             ->view('emails.contact-message');
     }
-
 
     /**
      * Get the message envelope.

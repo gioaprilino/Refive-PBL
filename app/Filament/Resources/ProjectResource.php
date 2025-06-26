@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProjectResource\Pages;
-use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ProjectResource extends Resource
 {
@@ -30,39 +27,39 @@ class ProjectResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\Select::make('service_id')
-                        ->relationship('service', 'title')
-                        ->required()
-                        ->label('Category'),
-                        Forms\Components\FileUpload::make('thumbnail')
-                        ->image()
-                        ->disk('public')
-                        ->directory('project_thmbnails')
-                        ->visibility('public')
-                        ->enableOpen()
-                        ->enableDownload()
-                        ->acceptedFileTypes(['image/*']),
-                        Forms\Components\FileUpload::make('images')
-                        ->image()
-                        ->reorderable()
-                        ->disk('public')
-                        ->directory('project_images')
-                        ->visibility('public')
-                        ->multiple()
-                        ->enableOpen()
-                        ->enableDownload()
-                        ->acceptedFileTypes(['image/*']),
-                        Forms\Components\RichEditor::make('description')
-                            ->required()
-                            ->columnSpanFull(),
-                    Forms\Components\Select::make('project_status')
-                        ->label('Status Proyek')
-                        ->options([
-                            'Selesai' => 'Selesai',
-                            'On Progress' => 'On Progress',
-                        ])
-                        ->default('Selesai')
-                        ->required(),
+                Forms\Components\Select::make('service_id')
+                    ->relationship('service', 'title')
+                    ->required()
+                    ->label('Category'),
+                Forms\Components\FileUpload::make('thumbnail')
+                    ->image()
+                    ->disk('public')
+                    ->directory('project_thmbnails')
+                    ->visibility('public')
+                    ->enableOpen()
+                    ->enableDownload()
+                    ->acceptedFileTypes(['image/*']),
+                Forms\Components\FileUpload::make('images')
+                    ->image()
+                    ->reorderable()
+                    ->disk('public')
+                    ->directory('project_images')
+                    ->visibility('public')
+                    ->multiple()
+                    ->enableOpen()
+                    ->enableDownload()
+                    ->acceptedFileTypes(['image/*']),
+                Forms\Components\RichEditor::make('description')
+                    ->required()
+                    ->columnSpanFull(),
+                Forms\Components\Select::make('project_status')
+                    ->label('Status Proyek')
+                    ->options([
+                        'Selesai' => 'Selesai',
+                        'On Progress' => 'On Progress',
+                    ])
+                    ->default('Selesai')
+                    ->required(),
                 Forms\Components\Select::make('status')
                     ->label('Status')
                     ->options([

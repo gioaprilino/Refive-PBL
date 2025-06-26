@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'title',
         'photo',
@@ -17,6 +18,6 @@ class Service extends Model
 
     public function projects()
     {
-    return $this->hasMany(Project::class);
+        return $this->hasMany(Project::class);
     }
 }
