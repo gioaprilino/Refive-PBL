@@ -50,15 +50,15 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{{ route('home') }}" class="active">Beranda</a></li>
+          <li><a href="{{ route('home') }}">Beranda</a></li>
             <li><a href="{{ route('home') }}#about">Tentang Kami</a></li>
           <li><a href="{{ route('home') }}#services">Layanan</a></li>
           <li><a href="{{ route('home') }}#portfolio">Proyek</a></li>
           <li><a href="{{ route('home') }}#team">Tim</a></li>
           <li class="dropdown"><a href="#"><span>Informasi</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Berita</a></li>
-              <li><a href="#">Lowongan Pekerjaan</a></li>
+            <li><a href="{{ route('news.index') }}">Berita</a></li>
+            <li><a href="{{ route('jobs.index') }}">Lowongan Pekerjaan</a></li>
             </ul>
           </li>
           <li><a href="{{ route('home') }}#contact">Contact</a></li>

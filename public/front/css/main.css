@@ -1880,8 +1880,17 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Starter Section Section
+# News Page Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+
+.news-title-link {
+    color: var(--heading-color, #222);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.news-title-link:hover,
+.news-title-link:focus,
+.news-title-link.active {
+    color: var(--accent-color, #007bff); /* Ganti sesuai warna tema utama */
+    text-decoration: underline;
 }
