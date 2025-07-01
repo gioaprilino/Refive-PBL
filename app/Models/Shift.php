@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Shift extends Model
 {
@@ -12,6 +12,6 @@ class Shift extends Model
     protected $fillable = [
         'name',
         'start_time',
-        'end_time'
+        'end_time',
     ];
 }

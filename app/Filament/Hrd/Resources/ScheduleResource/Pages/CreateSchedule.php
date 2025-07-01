@@ -3,7 +3,6 @@
 namespace App\Filament\Hrd\Resources\ScheduleResource\Pages;
 
 use App\Filament\Hrd\Resources\ScheduleResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateSchedule extends CreateRecord

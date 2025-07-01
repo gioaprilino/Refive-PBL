@@ -3,15 +3,12 @@
 namespace App\Filament\Hrd\Resources;
 
 use App\Filament\Hrd\Resources\ShiftResource\Pages;
-use App\Filament\Hrd\Resources\ShiftResource\RelationManagers;
 use App\Models\Shift;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ShiftResource extends Resource
 {
