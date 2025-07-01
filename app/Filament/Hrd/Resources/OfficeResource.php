@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Dotswan\MapPicker\Fields\Map;
 
 class OfficeResource extends Resource
 {
@@ -26,17 +27,38 @@ class OfficeResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('latitude')
+                    Forms\Components\Hidden::make('latitude') // Ubah ke Hidden
+                    ->required(),
+                    Forms\Components\Hidden::make('longitude') // Ubah ke Hidden
+                    ->required(),
+                    Forms\Components\TextInput::make('radius')
                     ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('longitude')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('radius')
-                    ->required()
-                    ->numeric(),
-            ]);
-    }
+                    ->numeric()
+                    ->suffix('meter'),
+                    Map::make('location')
+                        ->columnSpanFull()
+                        ->label('Lokasi')
+                        ->default([
+                            'lat' => 1.2634489126250839,
+                            'lng' => 101.18267121088138,
+                        ])
+                        ->required()
+                        ->afterStateUpdated(function ($state, Forms\Set $set) {
+                            $set('latitude', $state['lat']);
+                            $set('longitude', $state['lng']);
+                        })
+                        ->afterStateHydrated(function (Forms\Get $get, Forms\Set $set, $record) {
+                            if ($record && $record->latitude && $record->longitude) {
+                                $set('location', [
+                                    'lat' => $record->latitude,
+                                    'lng' => $record->longitude,
+                                ]);
+                            }
+                        })
+                        ->draggable(true)
+                        ->zoom(15),
+        ]);
+}
 
     public static function table(Table $table): Table
     {
