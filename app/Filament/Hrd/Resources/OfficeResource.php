@@ -20,6 +20,8 @@ class OfficeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Manajemen Absensi';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -27,14 +29,16 @@ class OfficeResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\Hidden::make('latitude') // Ubah ke Hidden
-                    ->required(),
-                    Forms\Components\Hidden::make('longitude') // Ubah ke Hidden
-                    ->required(),
                     Forms\Components\TextInput::make('radius')
                     ->required()
                     ->numeric()
                     ->suffix('meter'),
+                    Forms\Components\TextInput::make('latitude')
+                    ->required()
+                    ->numeric(),
+                    Forms\Components\TextInput::make('longitude')
+                    ->required()
+                    ->numeric(),
                     Map::make('location')
                         ->columnSpanFull()
                         ->label('Lokasi')

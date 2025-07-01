@@ -19,6 +19,8 @@ class ScheduleResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Manajemen Absensi';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -41,10 +43,15 @@ class ScheduleResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
-                    ->numeric()
+                    ->label('Name')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('user.email')
+                    ->label('Email')
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('shift.name')
-                    ->numeric()
+                    ->description(fn (Schedule $record): string => $record->shift->start_time.' - '.$record->shift->end_time)
                     ->sortable(),
                 Tables\Columns\TextColumn::make('office.name')
                     ->numeric()
