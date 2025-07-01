@@ -56,6 +56,7 @@ class OfficeResource extends Resource
                             }
                         })
                         ->draggable(true)
+                        ->tilesUrl("https://tile.openstreetmap.de/{z}/{x}/{y}.png")
                         ->zoom(15),
         ]);
 }
