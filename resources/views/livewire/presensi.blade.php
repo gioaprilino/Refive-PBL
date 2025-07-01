@@ -78,10 +78,17 @@
 
     const office = [{{$schedule->office->latitude}}, {{$schedule->office->longitude}}];
     const radius = {{$schedule->office->radius}};
+    const shiftStart = "{{ $schedule->shift->start_time }}";
+    const shiftEnd = "{{ $schedule->shift->end_time }}";
+
     let marker;
     L.circle(office, {radius: radius, color: 'red', fillColor: "#f03", fillOpacity: 0.5}).addTo(map);
 
     function tagLocation() {
+        if (!isWithinShiftTime()) {
+            alert("Anda berada di luar jam shift. Tidak dapat melakukan presensi.");
+            return;
+        }
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
                 const latitude = position.coords.latitude;
@@ -112,5 +119,24 @@
     function isWithinRadius(latitude, longitude, center, radius) {
         let distance = map.distance([latitude, longitude], center);
         return distance <= radius;
+    }
+
+    function isWithinShiftTime() {
+        const now = new Date();
+        const nowTime = now.getHours() * 60 + now.getMinutes(); // total menit
+
+        const [startH, startM] = shiftStart.split(':').map(Number);
+        const [endH, endM] = shiftEnd.split(':').map(Number);
+
+        const startTime = startH * 60 + startM;
+        const endTime = endH * 60 + endM;
+
+        if (startTime < endTime) {
+            // Shift dalam hari yang sama (contoh: 08:00 - 16:00)
+            return nowTime >= startTime && nowTime <= endTime;
+        } else {
+            // Shift melewati tengah malam (contoh: 18:00 - 07:00)
+            return nowTime >= startTime || nowTime <= endTime;
+        }
     }
 </script>
