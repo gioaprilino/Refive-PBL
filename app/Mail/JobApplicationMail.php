@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -14,6 +13,7 @@ class JobApplicationMail extends Mailable
     use Queueable, SerializesModels;
 
     public $data;
+
     public $cvPath;
 
     /**
@@ -27,9 +27,9 @@ class JobApplicationMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Lamaran Pekerjaan: ' . $this->data['job_title'])
+        return $this->subject('Lamaran Pekerjaan: '.$this->data['job_title'])
             ->view('emails.job-application')
-            ->attachFromStorageDisk('public', $this->cvPath, 'CV_' . $this->data['name'] . '.' . pathinfo($this->cvPath, PATHINFO_EXTENSION));
+            ->attachFromStorageDisk('public', $this->cvPath, 'CV_'.$this->data['name'].'.'.pathinfo($this->cvPath, PATHINFO_EXTENSION));
     }
 
     /**

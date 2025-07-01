@@ -1,12 +1,12 @@
 <?php
 
+use App\Livewire\JobApplyPage;
+use App\Livewire\JobPage;
+use App\Livewire\NewsDetailPage;
+use App\Livewire\NewsPage;
 use App\Livewire\ProjectDetail;
 use App\Livewire\ShowHome;
 use App\Livewire\ShowService;
-use App\Livewire\NewsPage;
-use App\Livewire\NewsDetailPage;
-use App\Livewire\JobPage;
-use App\Livewire\JobApplyPage;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {

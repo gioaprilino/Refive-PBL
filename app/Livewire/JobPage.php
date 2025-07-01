@@ -2,8 +2,8 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\JobVacancy;
+use Livewire\Component;
 
 class JobPage extends Component
 {

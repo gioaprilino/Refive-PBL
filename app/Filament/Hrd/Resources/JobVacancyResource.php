@@ -3,20 +3,18 @@
 namespace App\Filament\Hrd\Resources;
 
 use App\Filament\Hrd\Resources\JobVacancyResource\Pages;
-use App\Filament\Hrd\Resources\JobVacancyResource\RelationManagers;
 use App\Models\JobVacancy;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class JobVacancyResource extends Resource
 {
     protected static ?string $model = JobVacancy::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+
     protected static ?string $navigationLabel = 'Lowongan Kerja';
 
     public static function form(Forms\Form $form): Forms\Form
@@ -34,12 +32,12 @@ class JobVacancyResource extends Resource
     {
         return $table
             ->columns([
-            Tables\Columns\ImageColumn::make('thumbnail')->disk('public')->label('Thumbnail'),
-            Tables\Columns\TextColumn::make('title')->searchable(),
-            Tables\Columns\TextColumn::make('author')->label('Author'),
-            Tables\Columns\TextColumn::make('created_at')->date('d M Y')->label('Tanggal'),
-            Tables\Columns\TextColumn::make('deadline')->date('d M Y')->label('Deadline'),
-        ])
+                Tables\Columns\ImageColumn::make('thumbnail')->disk('public')->label('Thumbnail'),
+                Tables\Columns\TextColumn::make('title')->searchable(),
+                Tables\Columns\TextColumn::make('author')->label('Author'),
+                Tables\Columns\TextColumn::make('created_at')->date('d M Y')->label('Tanggal'),
+                Tables\Columns\TextColumn::make('deadline')->date('d M Y')->label('Deadline'),
+            ])
             ->filters([
                 //
             ])

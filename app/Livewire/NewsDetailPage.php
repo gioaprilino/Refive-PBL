@@ -2,8 +2,8 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\News;
+use Livewire\Component;
 
 class NewsDetailPage extends Component
 {
