@@ -66,7 +66,7 @@ class AdminPanelProvider extends PanelProvider
 
             ->navigationItems([
                 NavigationItem::make('Tri Virya Nusantara')
-                    ->url('http://localhost:8000', shouldOpenInNewTab: true)
+                    ->url('http://tvn-filament.test', shouldOpenInNewTab: true)
                     ->icon('heroicon-o-eye')
                     ->group('View Site')
                     ->sort(3),
