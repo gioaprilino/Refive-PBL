@@ -4,8 +4,8 @@ namespace App\Filament\Hrd\Resources\ScheduleResource\Pages;
 
 use App\Filament\Hrd\Resources\ScheduleResource;
 use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
 use Filament\Actions\Action;
+use Filament\Resources\Pages\ListRecords;
 
 class ListSchedules extends ListRecords
 {

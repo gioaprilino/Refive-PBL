@@ -70,12 +70,14 @@ class Presensi extends Component
 
     public function render()
     {
+        $schedule = Schedule::where('user_id', auth()->user()->id)->first();
+
         $schedule = Schedule::with(['shift', 'office'])->where('user_id', auth()->user()->id)->first();
 
         return view('livewire.presensi', [
             'schedule' => $schedule,
             'attendance' => $this->attendance,
         ])
-        ->layout('components.layouts.app2');
+            ->layout('components.layouts.app2');
     }
 }
