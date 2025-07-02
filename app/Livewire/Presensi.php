@@ -4,13 +4,18 @@ namespace App\Livewire;
 
 use App\Models\Attendance;
 use App\Models\Schedule;
+use Auth;
 use Carbon\Carbon;
 use Livewire\Component;
-use Auth;
 
 class Presensi extends Component
 {
-    public $latitude, $longitude, $status;
+    public $latitude;
+
+    public $longitude;
+
+    public $status;
+
     public $attendance;
 
     public function mount()
@@ -30,12 +35,13 @@ class Presensi extends Component
         $shift = $schedule->shift;
         $office = $schedule->office;
 
-        if (!$this->latitude || !$this->longitude || $this->status !== 'dalam') {
+        if (! $this->latitude || ! $this->longitude || $this->status !== 'dalam') {
             session()->flash('error', 'Lokasi tidak valid atau di luar jangkauan kantor.');
+
             return;
         }
 
-        if (!$this->attendance) {
+        if (! $this->attendance) {
             // CHECK IN
             Attendance::create([
                 'user_id' => $user->id,
@@ -49,7 +55,7 @@ class Presensi extends Component
             ]);
 
             session()->flash('success', 'Berhasil Check-In');
-        } elseif (!$this->attendance->end_time) {
+        } elseif (! $this->attendance->end_time) {
             // CHECK OUT
             $this->attendance->update([
                 'end_time' => $now->format('H:i:s'),
