@@ -45,6 +45,8 @@ class Presensi extends Component
             // CHECK IN
             Attendance::create([
                 'user_id' => $user->id,
+                'shift_id' => $shift->id,
+                'office_id' => $office->id,
                 'schedule_latitude' => $office->latitude,
                 'schedule_longitude' => $office->longitude,
                 'schedule_start_time' => $shift->start_time,

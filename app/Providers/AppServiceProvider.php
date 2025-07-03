@@ -6,6 +6,7 @@ use App\Models\Service;
 use Filament\Http\Responses\Auth\Contracts\LoginResponse;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,5 +29,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             $view->with('services', Service::all());
         });
+
+        config(['app.locale' => 'id']);
+        Carbon::setLocale('id');
     }
 }

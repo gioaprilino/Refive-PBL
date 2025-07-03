@@ -15,7 +15,7 @@ class ListSchedules extends ListRecords
     {
         return [
             Action::make('presensi')
-                ->url(route('presensi'))
+                ->url(route('presensi'), shouldOpenInNewTab: true)
                 ->color('warning'),
             Actions\CreateAction::make(),
         ];
