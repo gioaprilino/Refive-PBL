@@ -39,8 +39,8 @@ class HrdPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Hrd/Widgets'), for: 'App\\Filament\\Hrd\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                \App\Filament\Hrd\Widgets\StatsOverview::class,
+                \App\Filament\Hrd\Widgets\LatestLeaveRequests::class,
             ])
             ->middleware([
                 EncryptCookies::class,
