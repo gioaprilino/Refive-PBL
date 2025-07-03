@@ -12,6 +12,7 @@ class LatestLeaveRequests extends BaseWidget
     protected static ?string $heading = 'Pengajuan Cuti Terbaru';
 
     protected static ?int $sort = 1; // Adjust sort order as needed
+
     public function table(Table $table): Table
     {
         return $table
