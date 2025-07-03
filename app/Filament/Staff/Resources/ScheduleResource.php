@@ -19,6 +19,12 @@ class ScheduleResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Jadwal Presensi';
+
+    protected static ?string $modelLabel = 'Jadwal Presensi';
+
+    protected static ?string $pluralModelLabel = 'Jadwal Presensi';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -37,28 +43,19 @@ class ScheduleResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('office.name')
+                    ->label('Lokasi')
                     ->sortable(),
-
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                //
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                // Tables\Actions\BulkActionGroup::make([
+                //     Tables\Actions\DeleteBulkAction::make(),
+                // ]),
             ]);
     }
 
@@ -73,8 +70,6 @@ class ScheduleResource extends Resource
     {
         return [
             'index' => Pages\ListSchedules::route('/'),
-            'create' => Pages\CreateSchedule::route('/create'),
-            'edit' => Pages\EditSchedule::route('/{record}/edit'),
         ];
     }
 

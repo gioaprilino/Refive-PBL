@@ -23,6 +23,11 @@ class Attendance extends Model
         'end_time',
     ];
 
+    protected $casts = [
+    'start_time' => 'datetime',
+    'end_time' => 'datetime',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

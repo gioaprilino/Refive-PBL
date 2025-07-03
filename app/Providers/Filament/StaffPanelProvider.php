@@ -17,6 +17,9 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Staff\Resources\ScheduleResource\Widgets\StaffAttendanceWidget;
+use App\Filament\Staff\Resources\ScheduleResource\Widgets\WeeklyAttendanceChart;
+
 
 class StaffPanelProvider extends PanelProvider
 {
@@ -26,8 +29,12 @@ class StaffPanelProvider extends PanelProvider
             ->id('staff')
             ->path('staff')
             ->login()
+            ->brandName('Tri Virya Nusantara')
+            ->favicon(asset('/front/img/LOGO TVN.png'))
+            ->breadcrumbs(false)
+            ->topNavigation()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Indigo,
             ])
             ->discoverResources(in: app_path('Filament/Staff/Resources'), for: 'App\\Filament\\Staff\\Resources')
             ->discoverPages(in: app_path('Filament/Staff/Pages'), for: 'App\\Filament\\Staff\\Pages')
@@ -36,8 +43,8 @@ class StaffPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Staff/Widgets'), for: 'App\\Filament\\Staff\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                StaffAttendanceWidget::class,
+                WeeklyAttendanceChart::class,
             ])
             ->middleware([
                 EncryptCookies::class,
