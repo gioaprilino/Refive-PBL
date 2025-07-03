@@ -69,9 +69,10 @@ class EmployeeResource extends Resource
                     ->required()
                     ->options(function (callable $get) {
                         $departmentId = $get('department_id');
-                        if (!$departmentId) {
+                        if (! $departmentId) {
                             return [];
                         }
+
                         return Position::where('department_id', $departmentId)
                             ->pluck('name', 'id')
                             ->toArray();
