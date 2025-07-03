@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('attendances', function (Blueprint $table) {
-        $table->decimal('latitude', 10, 7)->nullable();
-        $table->decimal('longitude', 10, 7)->nullable();
-        $table->decimal('schedule_latitude', 10, 7)->nullable();
-        $table->decimal('schedule_longitude', 10, 7)->nullable();
-        $table->time('schedule_start_time')->nullable();
-        $table->time('schedule_end_time')->nullable();
+            $table->decimal('latitude', 10, 7)->nullable();
+            $table->decimal('longitude', 10, 7)->nullable();
+            $table->decimal('schedule_latitude', 10, 7)->nullable();
+            $table->decimal('schedule_longitude', 10, 7)->nullable();
+            $table->time('schedule_start_time')->nullable();
+            $table->time('schedule_end_time')->nullable();
         });
     }
 
@@ -27,16 +27,16 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('attendances', function (Blueprint $table) {
-       $table->dropColumn([
-            'latitude',
-            'longitude',
-            'schedule_latitude',
-            'schedule_longitude',
-            'schedule_start_time',
-            'schedule_end_time',
-            'created_at',
-            'updated_at',
-        ]);
+            $table->dropColumn([
+                'latitude',
+                'longitude',
+                'schedule_latitude',
+                'schedule_longitude',
+                'schedule_start_time',
+                'schedule_end_time',
+                'created_at',
+                'updated_at',
+            ]);
         });
     }
 };
