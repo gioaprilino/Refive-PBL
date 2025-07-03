@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
 class LeaveRequest extends Model
 {
@@ -42,7 +42,7 @@ class LeaveRequest extends Model
 
     public function getStatusColorAttribute()
     {
-        return match($this->status) {
+        return match ($this->status) {
             'pending' => 'bg-yellow-100 text-yellow-800',
             'approved' => 'bg-green-100 text-green-800',
             'rejected' => 'bg-red-100 text-red-800',
@@ -52,7 +52,7 @@ class LeaveRequest extends Model
 
     public function getStatusTextAttribute()
     {
-        return match($this->status) {
+        return match ($this->status) {
             'pending' => 'Menunggu Persetujuan',
             'approved' => 'Disetujui',
             'rejected' => 'Ditolak',
@@ -62,7 +62,7 @@ class LeaveRequest extends Model
 
     public function getLeaveTypeTextAttribute()
     {
-        return match($this->leave_type) {
+        return match ($this->leave_type) {
             'annual' => 'Cuti Tahunan',
             'sick' => 'Cuti Sakit',
             'personal' => 'Cuti Pribadi',
@@ -83,7 +83,7 @@ class LeaveRequest extends Model
 
         while ($currentDate->lte($endDate)) {
             // Skip weekends (Saturday = 6, Sunday = 0)
-            if (!in_array($currentDate->dayOfWeek, [0, 6])) {
+            if (! in_array($currentDate->dayOfWeek, [0, 6])) {
                 $totalDays++;
             }
             $currentDate->addDay();

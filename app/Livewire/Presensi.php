@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Attendance;
-use App\Models\Schedule;
 use App\Models\LeaveRequest;
+use App\Models\Schedule;
 use Auth;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -12,16 +12,24 @@ use Livewire\Component;
 class Presensi extends Component
 {
     public $latitude;
+
     public $longitude;
+
     public $status;
+
     public $attendance;
 
     // Leave request properties
     public $showLeaveModal = false;
+
     public $leave_type = '';
+
     public $start_date = '';
+
     public $end_date = '';
+
     public $reason = '';
+
     public $notes = '';
 
     public function mount()
@@ -41,12 +49,13 @@ class Presensi extends Component
         $shift = $schedule->shift;
         $office = $schedule->office;
 
-        if (!$this->latitude || !$this->longitude || $this->status !== 'dalam') {
+        if (! $this->latitude || ! $this->longitude || $this->status !== 'dalam') {
             session()->flash('error', 'Lokasi tidak valid atau di luar jangkauan kantor.');
+
             return;
         }
 
-        if (!$this->attendance) {
+        if (! $this->attendance) {
             // CHECK IN
             Attendance::create([
                 'user_id' => $user->id,
@@ -62,7 +71,7 @@ class Presensi extends Component
             ]);
 
             session()->flash('success', 'Berhasil Check-In');
-        } elseif (!$this->attendance->end_time) {
+        } elseif (! $this->attendance->end_time) {
             // CHECK OUT
             $this->attendance->update([
                 'end_time' => $now->format('H:i:s'),
@@ -130,13 +139,14 @@ class Presensi extends Component
                     ->orWhereBetween('end_date', [$this->start_date, $this->end_date])
                     ->orWhere(function ($q) {
                         $q->where('start_date', '<=', $this->start_date)
-                          ->where('end_date', '>=', $this->end_date);
+                            ->where('end_date', '>=', $this->end_date);
                     });
             })
             ->first();
 
         if ($existingLeave) {
             session()->flash('error', 'Anda sudah memiliki pengajuan cuti pada periode tersebut.');
+
             return;
         }
 
@@ -169,6 +179,6 @@ class Presensi extends Component
             'attendance' => $this->attendance,
             'leaveRequests' => $leaveRequests,
         ])
-        ->layout('components.layouts.app2');
+            ->layout('components.layouts.app2');
     }
 }

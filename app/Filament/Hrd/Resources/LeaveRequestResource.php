@@ -3,18 +3,16 @@
 namespace App\Filament\Hrd\Resources;
 
 use App\Filament\Hrd\Resources\LeaveRequestResource\Pages;
-use App\Filament\Hrd\Resources\LeaveRequestResource\RelationManagers;
 use App\Models\LeaveRequest;
 use Filament\Forms;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Tables\Actions\Action;
-use Filament\Forms\Components\Textarea;
-use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 
 class LeaveRequestResource extends Resource
@@ -114,7 +112,7 @@ class LeaveRequestResource extends Resource
                     ->label('Pegawai'),
 
                 Tables\Columns\TextColumn::make('leave_type')
-                    ->formatStateUsing(fn (string $state): string => match($state) {
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
                         'annual' => 'Cuti Tahunan',
                         'sick' => 'Cuti Sakit',
                         'personal' => 'Cuti Pribadi',
@@ -141,7 +139,7 @@ class LeaveRequestResource extends Resource
                     ->label('Total Hari'),
 
                 Tables\Columns\BadgeColumn::make('status')
-                    ->formatStateUsing(fn (string $state): string => match($state) {
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
                         'pending' => 'Menunggu',
                         'approved' => 'Disetujui',
                         'rejected' => 'Ditolak',

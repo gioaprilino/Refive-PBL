@@ -3,7 +3,6 @@
 namespace App\Filament\Hrd\Resources\LeaveRequestResource\Pages;
 
 use App\Filament\Hrd\Resources\LeaveRequestResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateLeaveRequest extends CreateRecord
