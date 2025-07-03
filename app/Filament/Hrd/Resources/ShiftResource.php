@@ -14,7 +14,13 @@ class ShiftResource extends Resource
 {
     protected static ?string $model = Shift::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clock';
+
+    protected static ?string $navigationLabel = 'Kelola Shift';
+
+    protected static ?string $modelLabel = 'Kelola Shift';
+
+    protected static ?string $pluralModelLabel = 'Kelola Shift';
 
     protected static ?string $navigationGroup = 'ABSENSI & CUTI';
 

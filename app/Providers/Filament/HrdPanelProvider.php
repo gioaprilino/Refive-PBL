@@ -30,7 +30,7 @@ class HrdPanelProvider extends PanelProvider
             ->favicon(asset('/front/img/LOGO TVN.png'))
             ->breadcrumbs(false)
             ->colors([
-                'primary' => Color::Rose,
+                'primary' => Color::Red,
             ])
             ->discoverResources(in: app_path('Filament/Hrd/Resources'), for: 'App\\Filament\\Hrd\\Resources')
             ->discoverPages(in: app_path('Filament/Hrd/Pages'), for: 'App\\Filament\\Hrd\\Pages')

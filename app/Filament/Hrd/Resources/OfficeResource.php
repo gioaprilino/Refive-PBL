@@ -15,7 +15,13 @@ class OfficeResource extends Resource
 {
     protected static ?string $model = Office::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-map-pin';
+
+    protected static ?string $navigationLabel = 'Kelola Lokasi';
+
+    protected static ?string $modelLabel = 'Kelola Lokasi';
+
+    protected static ?string $pluralModelLabel = 'Kelola Lokasi';
 
     protected static ?string $navigationGroup = 'ABSENSI & CUTI';
 

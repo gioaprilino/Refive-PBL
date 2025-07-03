@@ -14,7 +14,13 @@ class AttendanceResource extends Resource
 {
     protected static ?string $model = Attendance::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
+
+    protected static ?string $navigationLabel = 'Rekap Absensi';
+
+    protected static ?string $modelLabel = 'Rekap Absensi';
+
+    protected static ?string $pluralModelLabel = 'Rekap Absensi';
 
     protected static ?string $navigationGroup = 'ABSENSI & CUTI';
 
