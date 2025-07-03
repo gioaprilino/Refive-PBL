@@ -24,6 +24,8 @@ class ScheduleResource extends Resource
 
     protected static ?string $navigationGroup = 'ABSENSI & CUTI';
 
+    protected static ?int $navigationSort = 5;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -57,6 +59,7 @@ class ScheduleResource extends Resource
                     ->description(fn (Schedule $record): string => $record->shift->start_time.' - '.$record->shift->end_time)
                     ->sortable(),
                 Tables\Columns\TextColumn::make('office.name')
+                    ->label('Lokasi')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

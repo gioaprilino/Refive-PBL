@@ -25,6 +25,8 @@ class OfficeResource extends Resource
 
     protected static ?string $navigationGroup = 'ABSENSI & CUTI';
 
+    protected static ?int $navigationSort = 3;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -94,6 +96,7 @@ class OfficeResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('radius')
                     ->numeric()
+                    ->label('Radius (m)')
                     ->sortable(),
             ])
             ->filters([
