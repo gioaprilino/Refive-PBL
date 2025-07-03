@@ -3,15 +3,12 @@
 namespace App\Filament\Staff\Resources;
 
 use App\Filament\Staff\Resources\ScheduleResource\Pages;
-use App\Filament\Staff\Resources\ScheduleResource\RelationManagers;
 use App\Models\Schedule;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ScheduleResource extends Resource
 {
@@ -38,8 +35,7 @@ class ScheduleResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('shift.name')
-                    ->description(fn (Schedule $record): string =>
-                        $record->shift->start_time . ' - ' . $record->shift->end_time)
+                    ->description(fn (Schedule $record): string => $record->shift->start_time.' - '.$record->shift->end_time)
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('office.name')
