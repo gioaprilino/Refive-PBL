@@ -2,11 +2,9 @@
 
 namespace App\Filament\Staff\Resources\ScheduleResource\Widgets;
 
-use Filament\Widgets\Widget;
 use App\Models\Attendance;
 use App\Models\Schedule;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
+use Filament\Widgets\Widget;
 
 class StaffAttendanceWidget extends Widget
 {

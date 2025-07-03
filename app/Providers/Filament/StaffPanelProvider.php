@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Staff\Resources\ScheduleResource\Widgets\StaffAttendanceWidget;
+use App\Filament\Staff\Resources\ScheduleResource\Widgets\WeeklyAttendanceChart;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -10,16 +12,12 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use App\Filament\Staff\Resources\ScheduleResource\Widgets\StaffAttendanceWidget;
-use App\Filament\Staff\Resources\ScheduleResource\Widgets\WeeklyAttendanceChart;
-
 
 class StaffPanelProvider extends PanelProvider
 {

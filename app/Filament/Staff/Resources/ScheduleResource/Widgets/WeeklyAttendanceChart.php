@@ -2,10 +2,10 @@
 
 namespace App\Filament\Staff\Resources\ScheduleResource\Widgets;
 
-use Filament\Widgets\ChartWidget;
 use App\Models\Attendance;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Filament\Widgets\ChartWidget;
+use Illuminate\Support\Facades\Auth;
 
 class WeeklyAttendanceChart extends ChartWidget
 {
