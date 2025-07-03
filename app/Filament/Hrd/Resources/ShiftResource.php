@@ -16,7 +16,7 @@ class ShiftResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Manajemen Absensi';
+    protected static ?string $navigationGroup = 'ABSENSI & CUTI';
 
     public static function form(Form $form): Form
     {

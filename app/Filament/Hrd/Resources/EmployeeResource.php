@@ -4,6 +4,7 @@ namespace App\Filament\Hrd\Resources;
 
 use App\Filament\Hrd\Resources\EmployeeResource\Pages;
 use App\Models\Employee;
+use App\Models\Position;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -62,10 +63,21 @@ class EmployeeResource extends Resource
                     ->required(),
                 Forms\Components\Select::make('department_id')
                     ->required()
+                    ->reactive()
                     ->relationship('department', 'code'),
                 Forms\Components\Select::make('position_id')
-                    ->relationship('position', 'name')
-                    ->required(),
+                    ->required()
+                    ->options(function (callable $get) {
+                        $departmentId = $get('department_id');
+                        if (!$departmentId) {
+                            return [];
+                        }
+                        return Position::where('department_id', $departmentId)
+                            ->pluck('name', 'id')
+                            ->toArray();
+                    })
+                    ->searchable()
+                    ->label('Posisi'),
                 Forms\Components\DatePicker::make('hire_date')
                     ->required(),
                 Forms\Components\Select::make('status')
@@ -84,6 +96,7 @@ class EmployeeResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('profile')
                     ->label('Profil')
+                    ->circular()
                     ->size(50),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),

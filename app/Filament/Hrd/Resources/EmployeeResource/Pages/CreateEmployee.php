@@ -24,7 +24,7 @@ class CreateEmployee extends CreateRecord
             'name' => $data['name'],
             'email' => $data['email'],
             'email_verified_at' => now(),
-            'password' => bcrypt($data['password']),
+            'password' => $data['password'],
             'role' => 'staff', // atau role sesuai kebutuhan
         ]);
 

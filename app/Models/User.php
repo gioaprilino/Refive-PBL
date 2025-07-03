@@ -45,4 +45,41 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+
+    // New relations for leave requests
+    public function leaveRequests()
+    {
+        return $this->hasMany(LeaveRequest::class);
+    }
+
+    public function approvedLeaveRequests()
+    {
+        return $this->hasMany(LeaveRequest::class, 'approved_by');
+    }
+
+    // Helper method to check if user has pending leave requests
+    public function hasPendingLeaveRequests()
+    {
+        return $this->leaveRequests()->where('status', 'pending')->exists();
+    }
+
+    // Helper method to get approved leave requests for a specific date range
+    public function hasApprovedLeaveOn($date)
+    {
+        return $this->leaveRequests()
+            ->where('status', 'approved')
+            ->whereDate('start_date', '<=', $date)
+            ->whereDate('end_date', '>=', $date)
+            ->exists();
+    }
 }
