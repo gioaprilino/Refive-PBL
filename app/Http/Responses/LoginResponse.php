@@ -4,6 +4,7 @@ namespace App\Http\Responses;
 
 use App\Filament\Hrd\Resources\EmployeeResource;
 use App\Filament\Resources\ContactMessageResource;
+use App\Filament\Staff\Resources\ScheduleResource;
 use Filament\Facades\Filament;
 use Illuminate\Http\RedirectResponse;
 use Livewire\Features\SupportRedirects\Redirector;
@@ -25,6 +26,12 @@ class LoginResponse extends \Filament\Http\Responses\Auth\LoginResponse
             return redirect()->to(EmployeeResource::getUrl('index', panel: 'hrd'));
         }
 
+        // Jika staff login di panel admin atau hrd, redirect ke panel staff
+        if ($user->role === 'staff' && in_array($currentPanel, ['admin', 'hrd'])) {
+            // Ganti StaffResource dengan resource utama staff kamu
+            return redirect()->to(ScheduleResource::getUrl('index', panel: 'staff'));
+        }
+
         // Jika role dan panel sudah sesuai, redirect seperti biasa
         if ($user->role === 'admin') {
             return redirect()->to(ContactMessageResource::getUrl('index'));
@@ -32,6 +39,10 @@ class LoginResponse extends \Filament\Http\Responses\Auth\LoginResponse
 
         if ($user->role === 'hrd') {
             return redirect()->to(EmployeeResource::getUrl('index'));
+        }
+
+        if ($user->role === 'staff') {
+            return redirect()->to(ScheduleResource::getUrl('index'));
         }
 
         return parent::toResponse($request);

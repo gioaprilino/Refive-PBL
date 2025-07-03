@@ -26,6 +26,9 @@ class PanelRoleMiddleware
             if ($panel === 'hrd' && $user->role !== 'hrd') {
                 abort(403, 'Hanya HRD yang boleh mengakses panel HRD.');
             }
+            if ($panel === 'staff' && $user->role !== 'staff') {
+            abort(403, 'Hanya Staff yang boleh mengakses panel Staff.');
+            }
         }
 
         return $next($request);
