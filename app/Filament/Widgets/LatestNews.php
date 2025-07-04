@@ -9,7 +9,7 @@ use Filament\Widgets\TableWidget as BaseWidget;
 
 class LatestNews extends BaseWidget
 {
-protected static ?string $heading = 'Berita Terbaru';
+    protected static ?string $heading = 'Berita Terbaru';
 
     protected static ?int $sort = 1;
 
@@ -35,7 +35,7 @@ protected static ?string $heading = 'Berita Terbaru';
                     ->date('d M Y')
                     ->label('Tanggal'),
             ])
-           ->actions([
+            ->actions([
                 Tables\Actions\EditAction::make()
                     ->url(fn (News $record): string => \App\Filament\Resources\NewsResource::getUrl('edit', ['record' => $record])),
             ]);

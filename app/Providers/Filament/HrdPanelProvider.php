@@ -40,7 +40,7 @@ class HrdPanelProvider extends PanelProvider
             ->widgets([
                 \App\Filament\Hrd\Widgets\StatsOverview::class,
                 \App\Filament\Hrd\Widgets\LatestLeaveRequests::class,
-                \App\Filament\Hrd\Widgets\PendingLeaveRequestsChart::class
+                \App\Filament\Hrd\Widgets\PendingLeaveRequestsChart::class,
             ])
             ->middleware([
                 EncryptCookies::class,
