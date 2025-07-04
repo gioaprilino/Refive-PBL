@@ -28,6 +28,8 @@ class HrdPanelProvider extends PanelProvider
             ->brandName('Tri Virya Nusantara')
             ->favicon(asset('/front/img/LOGO TVN.png'))
             ->breadcrumbs(false)
+            ->databaseNotifications()
+            ->databaseNotificationsPolling('5s')
             ->colors([
                 'primary' => Color::Red,
             ])
