@@ -8,13 +8,14 @@ use Filament\Widgets\ChartWidget;
 class ProjectStatusChart extends ChartWidget
 {
     protected static ?string $heading = 'Status Proyek';
-    protected static ?int $sort = 3;
 
+    protected static ?int $sort = 3;
 
     protected function getData(): array
     {
         $finished = Project::where('project_status', 'Selesai')->count();
         $onProgress = Project::where('project_status', 'On Progress')->count();
+
         return [
             'datasets' => [
                 [

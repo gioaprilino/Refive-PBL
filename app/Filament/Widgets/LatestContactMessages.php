@@ -9,7 +9,7 @@ use Filament\Widgets\TableWidget as BaseWidget;
 
 class LatestContactMessages extends BaseWidget
 {
-protected static ?string $heading = 'Pesan Kontak Terbaru';
+    protected static ?string $heading = 'Pesan Kontak Terbaru';
 
     protected static ?int $sort = 2;
 

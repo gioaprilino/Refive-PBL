@@ -10,14 +10,12 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class EmployeeProjectResource extends Resource
 {
     protected static ?string $model = EmployeeProject::class;
 
-     protected static ?string $navigationIcon = 'heroicon-o-folder-open';
+    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
 
     protected static ?string $navigationLabel = 'Proyek & Tugas';
 
@@ -33,7 +31,7 @@ class EmployeeProjectResource extends Resource
     {
         return $form
             ->schema([
-                 Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('name')
                     ->label('Nama Proyek')
                     ->required()
                     ->maxLength(255)

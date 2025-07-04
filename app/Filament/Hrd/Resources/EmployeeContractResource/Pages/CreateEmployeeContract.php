@@ -3,7 +3,6 @@
 namespace App\Filament\Hrd\Resources\EmployeeContractResource\Pages;
 
 use App\Filament\Hrd\Resources\EmployeeContractResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateEmployeeContract extends CreateRecord
