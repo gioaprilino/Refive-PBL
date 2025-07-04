@@ -5,9 +5,9 @@ namespace App\Console\Commands;
 use App\Models\EmployeeContract;
 use App\Models\User;
 use App\Notifications\ContractExpiringSoon;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Notification;
-use Carbon\Carbon;
 
 class CheckExpiringContracts extends Command
 {
@@ -43,6 +43,7 @@ class CheckExpiringContracts extends Command
 
         if ($expiringContracts->isEmpty()) {
             $this->info('Tidak ada kontrak yang akan berakhir dalam 30 hari ke depan.');
+
             return;
         }
 
@@ -52,18 +53,19 @@ class CheckExpiringContracts extends Command
         $hrdEmail = config('hrd.notification_email', 'hrd@example.com');
         $hrdUser = User::where('email', $hrdEmail)->first();
 
-        if (!$hrdUser) {
+        if (! $hrdUser) {
             $this->error("Pengguna HRD dengan email {$hrdEmail} tidak ditemukan. Notifikasi tidak dapat dikirim.");
+
             return;
         }
 
         foreach ($expiringContracts as $contract) {
-            $this->line("-> Menemukan kontrak yang akan berakhir untuk: " . $contract->employee->name);
+            $this->line('-> Menemukan kontrak yang akan berakhir untuk: '.$contract->employee->name);
 
             // Send the notification to the HRD user
             Notification::send($hrdUser, new ContractExpiringSoon($contract));
         }
 
-        $this->info('Notifikasi untuk ' . $expiringContracts->count() . ' kontrak telah berhasil dikirim.');
+        $this->info('Notifikasi untuk '.$expiringContracts->count().' kontrak telah berhasil dikirim.');
     }
 }
