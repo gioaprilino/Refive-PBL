@@ -4,7 +4,6 @@ namespace App\Filament\Hrd\Widgets;
 
 use App\Models\LeaveRequest;
 use Filament\Widgets\ChartWidget;
-use Flowbite\Flowbite;
 use Illuminate\Support\Carbon;
 
 class PendingLeaveRequestsChart extends ChartWidget
