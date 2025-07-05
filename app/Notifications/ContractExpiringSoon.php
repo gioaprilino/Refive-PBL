@@ -3,17 +3,17 @@
 namespace App\Notifications;
 
 use App\Models\EmployeeContract;
+use Filament\Notifications\Notification as FilamentNotification;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Filament\Notifications\Notification as FilamentNotification;
 
 class ContractExpiringSoon extends Notification
 {
     use Queueable;
 
     public EmployeeContract $contract;
+
     /**
      * Create a new notification instance.
      */
@@ -42,11 +42,11 @@ class ContractExpiringSoon extends Notification
 
         return (new MailMessage)
             ->error() // Gives it a red "alert" theme
-            ->subject("Pemberitahuan: Kontrak Karyawan Segera Berakhir")
-            ->greeting("Halo Tim HRD,")
+            ->subject('Pemberitahuan: Kontrak Karyawan Segera Berakhir')
+            ->greeting('Halo Tim HRD,')
             ->line("Kontrak kerja untuk karyawan atas nama **{$employeeName}** akan segera berakhir pada tanggal **{$endDate}**.")
-            ->line("Mohon untuk segera mempersiapkan proses perpanjangan kontrak atau prosedur off-boarding.")
-            ->action('Lihat Detail Kontrak', url(config('app.url') . '/hrd/employee-contracts/' . $this->contract->id . '/edit'))
+            ->line('Mohon untuk segera mempersiapkan proses perpanjangan kontrak atau prosedur off-boarding.')
+            ->action('Lihat Detail Kontrak', url(config('app.url').'/hrd/employee-contracts/'.$this->contract->id.'/edit'))
             ->line('Terima kasih atas perhatian Anda.');
     }
 
@@ -63,7 +63,7 @@ class ContractExpiringSoon extends Notification
         return [
             'title' => 'Kontrak Segera Berakhir',
             'body' => "Kontrak untuk {$employeeName} akan berakhir pada {$endDate}.",
-            'url' => '/hrd/employee-contracts/' . $this->contract->id . '/edit',
+            'url' => '/hrd/employee-contracts/'.$this->contract->id.'/edit',
         ];
     }
 
