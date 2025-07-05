@@ -117,14 +117,14 @@ class EmployeeResource extends Resource
                         'danger' => 'resigned',
                     ])
                     ->sortable()
-                ->formatStateUsing(function ($state) {
-                    return match ($state) {
-                        'active' => 'Aktif',
-                        'resigned' => 'Resign',
-                        'retired' => 'Pensiun',
-                        default => $state,
-                    };
-                }),
+                    ->formatStateUsing(function ($state) {
+                        return match ($state) {
+                            'active' => 'Aktif',
+                            'resigned' => 'Resign',
+                            'retired' => 'Pensiun',
+                            default => $state,
+                        };
+                    }),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('department_id')
