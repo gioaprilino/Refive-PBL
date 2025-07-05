@@ -17,6 +17,12 @@ class EmployeeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-identification';
 
+    protected static ?string $navigationLabel = 'Staff';
+
+    protected static ?string $modelLabel = 'Staff';
+
+    protected static ?string $pluralModelLabel = 'Staff';
+
     protected static ?string $navigationGroup = 'Manajemen Staff';
 
     protected static ?int $navigationSort = 3;

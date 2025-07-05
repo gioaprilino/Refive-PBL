@@ -22,9 +22,9 @@ class EmployeeContractResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Kontrak Kerja';
 
-    protected static ?string $navigationGroup = 'Manajemen Proyek';
+    protected static ?string $navigationGroup = 'Manajemen Staff';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {

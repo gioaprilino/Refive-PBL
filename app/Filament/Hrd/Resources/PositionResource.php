@@ -16,6 +16,12 @@ class PositionResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
+    protected static ?string $navigationLabel = 'Jabatan';
+
+    protected static ?string $modelLabel = 'Jabatan';
+
+    protected static ?string $pluralModelLabel = 'Jabatan';
+
     protected static ?string $navigationGroup = 'Manajemen Staff';
 
     protected static ?int $navigationSort = 2;

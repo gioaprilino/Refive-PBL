@@ -15,6 +15,10 @@ class JobVacancyResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
+    protected static ?string $modelLabel = 'Lowongan Kerja';
+
+    protected static ?string $pluralModelLabel = 'Lowongan Kerja';
+
     protected static ?string $navigationLabel = 'Lowongan Kerja';
 
     public static function form(Forms\Form $form): Forms\Form

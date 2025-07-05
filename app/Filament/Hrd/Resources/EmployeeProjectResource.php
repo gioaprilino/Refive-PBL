@@ -23,9 +23,9 @@ class EmployeeProjectResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Proyek & Tugas';
 
-    protected static ?string $navigationGroup = 'Manajemen Proyek';
+    protected static ?string $navigationGroup = 'Manajemen Staff';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {

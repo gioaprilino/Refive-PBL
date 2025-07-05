@@ -16,6 +16,12 @@ class DepartmentResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
+    protected static ?string $navigationLabel = 'Departemen';
+
+    protected static ?string $modelLabel = 'Departemen';
+
+    protected static ?string $pluralModelLabel = 'Departemen';
+
     protected static ?string $navigationGroup = 'Manajemen Staff';
 
     protected static ?int $navigationSort = 1;
