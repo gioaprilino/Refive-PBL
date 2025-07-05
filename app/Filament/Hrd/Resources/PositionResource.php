@@ -37,12 +37,17 @@ class PositionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('department.code'),
+                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('department.code')
+                    ->sortable(),
             ])
             ->filters([
-                //
+                // buatkan saya filter berdasarkan departmen
+                Tables\Filters\SelectFilter::make('department_id')
+                    ->label('Departemen')
+                    ->options(
+                        \App\Models\Department::pluck('code', 'id')->toArray()
+                    ),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

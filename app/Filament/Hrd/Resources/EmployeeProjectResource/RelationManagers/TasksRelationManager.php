@@ -61,7 +61,7 @@ class TasksRelationManager extends RelationManager
                 Tables\Columns\BadgeColumn::make('status')
                     ->colors([
                         'warning' => 'pending',
-                        'primary' => 'in_progress',
+                        'info' => 'in_progress',
                         'success' => 'completed',
                     ])
                     ->formatStateUsing(fn (string $state): string => match ($state) {

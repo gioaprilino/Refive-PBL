@@ -100,7 +100,8 @@ class EmployeeResource extends Resource
                     ->circular()
                     ->size(50),
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('department.code')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('position.name')
@@ -109,16 +110,40 @@ class EmployeeResource extends Resource
                 Tables\Columns\TextColumn::make('hire_date')
                     ->date()
                     ->sortable(),
-                Tables\Columns\SelectColumn::make('status')
+                Tables\Columns\BadgeColumn::make('status')
+                    ->colors([
+                        'success' => 'active',
+                        'warning' => 'retired',
+                        'danger' => 'resigned',
+                    ])
+                    ->sortable()
+                ->formatStateUsing(function ($state) {
+                    return match ($state) {
+                        'active' => 'Aktif',
+                        'resigned' => 'Resign',
+                        'retired' => 'Pensiun',
+                        default => $state,
+                    };
+                }),
+            ])
+            ->filters([
+                Tables\Filters\SelectFilter::make('department_id')
+                    ->label('Departemen')
+                    ->options(
+                        \App\Models\Department::pluck('code', 'id')->toArray()
+                    ),
+                Tables\Filters\SelectFilter::make('position_id')
+                    ->label('Posisi')
+                    ->options(
+                        Position::pluck('name', 'id')->toArray()
+                    ),
+                Tables\Filters\SelectFilter::make('status')
+                    ->label('Status')
                     ->options([
                         'active' => 'Aktif',
                         'resigned' => 'Resign',
-                        'Retired' => 'Pensiun',
-                    ])
-                    ->sortable(),
-            ])
-            ->filters([
-                //
+                        'retired' => 'Pensiun',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

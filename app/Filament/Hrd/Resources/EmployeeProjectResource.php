@@ -88,7 +88,7 @@ class EmployeeProjectResource extends Resource
                 Tables\Columns\BadgeColumn::make('status')
                     ->colors([
                         'warning' => 'pending',
-                        'primary' => 'in_progress',
+                        'info' => 'in_progress',
                         'success' => 'completed',
                         'danger' => 'cancelled',
                     ])

@@ -16,11 +16,6 @@ class MyTasksRelationManager extends RelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    /**
-     * INI BAGIAN PENTING: Memfilter tugas
-     * Hanya menampilkan tugas yang di-assign ke staff yang login
-     * di dalam proyek ini.
-     */
     public function getEloquentQuery(): Builder
     {
         // AMBIL ID EMPLOYEE DARI USER YANG LOGIN
@@ -80,7 +75,7 @@ class MyTasksRelationManager extends RelationManager
                 Tables\Columns\BadgeColumn::make('status')
                     ->colors([
                         'warning' => 'pending',
-                        'primary' => 'in_progress',
+                        'info' => 'in_progress',
                         'success' => 'completed',
                     ])
                     ->formatStateUsing(fn (string $state): string => match ($state) {
@@ -94,11 +89,11 @@ class MyTasksRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                // Staff tidak bisa membuat tugas baru
+                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->label('Ubah Status'),
             ])
-            ->bulkActions([]); // Hapus bulk actions
+            ->bulkActions([]);
     }
 }
