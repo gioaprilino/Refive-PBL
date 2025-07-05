@@ -26,13 +26,12 @@ class MyTasksRelationManager extends RelationManager
         // AMBIL ID EMPLOYEE DARI USER YANG LOGIN
         $employeeId = Auth::user()->employee_id;
 
-        if (!$employeeId) {
+        if (! $employeeId) {
             return parent::getEloquentQuery()->whereRaw('1 = 0');
         }
 
         return parent::getEloquentQuery()->where('employee_id', $employeeId);
     }
-
 
     public function form(Form $form): Form
     {

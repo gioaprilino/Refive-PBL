@@ -36,7 +36,7 @@ class MyProjectResource extends Resource
         $employeeId = Auth::user()->employee_id;
 
         // Jika user tidak terhubung ke data employee, jangan tampilkan apa-apa
-        if (!$employeeId) {
+        if (! $employeeId) {
             return parent::getEloquentQuery()->whereRaw('1 = 0'); // Trik untuk mengembalikan hasil kosong
         }
 
