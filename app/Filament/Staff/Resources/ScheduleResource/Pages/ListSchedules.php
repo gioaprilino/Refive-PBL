@@ -15,7 +15,7 @@ class ListSchedules extends ListRecords
         return [
             Action::make('Ambil Absensi')
                 ->url(route('presensi'), shouldOpenInNewTab: true)
-                ->color('warning'),
+                ->color('info'),
         ];
     }
 }

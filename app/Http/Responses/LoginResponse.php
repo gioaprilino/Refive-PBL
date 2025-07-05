@@ -21,14 +21,23 @@ class LoginResponse extends \Filament\Http\Responses\Auth\LoginResponse
             return redirect()->to(ContactMessageResource::getUrl('index', panel: 'admin'));
         }
 
+        // Jika admin login di panel staff, redirect ke panel staff
+        if ($user->role === 'admin' && $currentPanel === 'staff') {
+            return redirect()->to(ScheduleResource::getUrl('index', panel: 'staff'));
+        }
+
         // Jika hrd login di panel admin, redirect ke panel hrd
         if ($user->role === 'hrd' && $currentPanel === 'admin') {
             return redirect()->to(EmployeeResource::getUrl('index', panel: 'hrd'));
         }
 
+        // Jika hrd login di panel staff, redirect ke panel staff
+        if ($user->role === 'hrd' && $currentPanel === 'staff') {
+            return redirect()->to(ScheduleResource::getUrl('index', panel: 'staff'));
+        }
+
         // Jika staff login di panel admin atau hrd, redirect ke panel staff
         if ($user->role === 'staff' && in_array($currentPanel, ['admin', 'hrd'])) {
-            // Ganti StaffResource dengan resource utama staff kamu
             return redirect()->to(ScheduleResource::getUrl('index', panel: 'staff'));
         }
 
