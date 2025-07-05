@@ -25,6 +25,7 @@ class HrdPanelProvider extends PanelProvider
             ->id('hrd')
             ->path('hrd')
             ->login()
+            ->profile(isSimple: false)
             ->brandName('Tri Virya Nusantara')
             ->favicon(asset('/front/img/LOGO TVN.png'))
             ->breadcrumbs(false)

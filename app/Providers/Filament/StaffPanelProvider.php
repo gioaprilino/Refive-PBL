@@ -27,6 +27,7 @@ class StaffPanelProvider extends PanelProvider
             ->id('staff')
             ->path('staff')
             ->login()
+            ->profile(isSimple: false)
             ->brandName('Tri Virya Nusantara')
             ->favicon(asset('/front/img/LOGO TVN.png'))
             ->breadcrumbs(false)

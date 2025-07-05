@@ -30,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->profile(isSimple: false)
             ->brandName('Tri Virya Nusantara')
             ->favicon(asset('/front/img/LOGO TVN.png'))
             ->sidebarCollapsibleOnDesktop()
