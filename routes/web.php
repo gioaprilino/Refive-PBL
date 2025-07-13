@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\JobApplyPage;
+use App\Livewire\JobDetailPage;
 use App\Livewire\JobPage;
 use App\Livewire\NewsDetailPage;
 use App\Livewire\NewsPage;
@@ -19,6 +20,7 @@ Route::get('/project-details/{id}', ProjectDetail::class)->name('projectPage');
 Route::get('/berita', NewsPage::class)->name('news.index');
 Route::get('/berita/{news}', NewsDetailPage::class)->name('news.show');
 Route::get('/lowongan', JobPage::class)->name('jobs.index');
+Route::get('/lowongan/{job}', JobDetailPage::class)->name('jobs.show');
 Route::get('/lowongan/{job}/apply', JobApplyPage::class)->name('jobs.apply');
 
 Route::group(['middleware' => 'auth'], function () {

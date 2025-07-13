@@ -1894,3 +1894,56 @@ section,
     color: var(--accent-color, #007bff); /* Ganti sesuai warna tema utama */
     text-decoration: underline;
 }
+
+/*--------------------------------------------------------------
+# Jobs Page Section
+--------------------------------------------------------------*/
+
+.job-title-link {
+    color: var(--heading-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.job-title-link:hover {
+    color: var(--accent-color);
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.job-info .info-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.job-info .info-item:last-child {
+    border-bottom: none;
+}
+
+.content {
+    line-height: 1.6;
+}
+
+.content ul, .content ol {
+    padding-left: 20px;
+}
+
+.content li {
+    margin-bottom: 5px;
+}
+
+.btn-lg {
+    transition: all 0.3s ease;
+}
+
+.btn-lg:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

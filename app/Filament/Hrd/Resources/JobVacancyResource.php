@@ -27,7 +27,7 @@ class JobVacancyResource extends Resource
             Forms\Components\TextInput::make('title')->required(),
             Forms\Components\FileUpload::make('thumbnail')->disk('public')->directory('job-vacancies')->image()->nullable(),
             Forms\Components\TextInput::make('author')->nullable(),
-            Forms\Components\Textarea::make('description')->required()->columnSpanFull(),
+            Forms\Components\RichEditor::make('description')->required()->columnSpanFull(),
             Forms\Components\DatePicker::make('deadline')->label('Deadline')->nullable(),
         ]);
     }
