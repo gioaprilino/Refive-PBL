@@ -50,7 +50,7 @@ class Presensi extends Component
         $office = $schedule->office;
 
         if (! $this->latitude || ! $this->longitude || $this->status !== 'dalam') {
-            session()->flash('error', 'Lokasi tidak valid atau di luar jangkauan kantor.');
+            session()->flash('error', 'Lokasi tidak valid atau di luar jangkauan.');
 
             return;
         }

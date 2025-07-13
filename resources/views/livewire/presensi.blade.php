@@ -7,12 +7,12 @@
                     <h2 class="text-2xl font-bold mb-4">Informasi Pegawai</h2>
                     <div class="bg-gray-100 p-4 rounded-lg space-y-2">
                         <p><strong>Nama Pegawai :</strong> {{ Auth::user()->name }}</p>
-                        <p><strong>Kantor :</strong> {{ $schedule->office->name }}</p>
+                        <p><strong>Lokasi :</strong> {{ $schedule->office->name }}</p>
                         <p><strong>Shift :</strong> {{ $schedule->shift->name }} ({{ $schedule->shift->start_time }} - {{ $schedule->shift->end_time }}) WIB</p>
 
                         <!-- DEBUG INFO - Tambahkan ini untuk debug -->
                         <div class="bg-yellow-100 p-2 rounded mt-2 text-sm">
-                            <p><strong>DEBUG - Koordinat Kantor dari Database:</strong></p>
+                            <p><strong>DEBUG - Koordinat Lokasi dari Database:</strong></p>
                             <p>Latitude: {{ $schedule->office->latitude }}</p>
                             <p>Longitude: {{ $schedule->office->longitude }}</p>
                             <p>Radius: {{ $schedule->office->radius }} meter</p>
@@ -221,7 +221,7 @@
                     attribution: '&copy; OpenStreetMap'
                 }).addTo(map);
 
-                // Circle untuk radius kantor
+                // Circle untuk radius lokasi
                 L.circle(office, {
                     radius: radius,
                     color: 'red',
@@ -229,13 +229,13 @@
                     fillOpacity: 0.5
                 }).addTo(map);
 
-                // Marker untuk kantor
+                // Marker untuk lokasi
                 officeMarker = L.marker(office, {
                     icon: L.icon({
                         iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjRkY0NDQ0Ii8+Cjwvc3ZnPgo=',
                         iconSize: [25, 25]
                     })
-                }).addTo(map).bindPopup('Kantor: {{ $schedule->office->name }}');
+                }).addTo(map).bindPopup('Lokasi: {{ $schedule->office->name }}');
 
                 console.log('Map initialized with office at:', office);
             }
