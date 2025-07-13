@@ -1,15 +1,16 @@
 <?php
 
-
 namespace App\Livewire;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Livewire\Component;
 
 class NewsletterForm extends Component
 {
     public $email;
+
     public $successMessage = '';
+
     public $errorMessage = '';
 
     protected $rules = [
@@ -23,6 +24,7 @@ class NewsletterForm extends Component
 
         if (DB::table('newsletters')->where('email', $this->email)->exists()) {
             $this->errorMessage = 'Email ini sudah pernah subscribe.';
+
             return;
         }
 
