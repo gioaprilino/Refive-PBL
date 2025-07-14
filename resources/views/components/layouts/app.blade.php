@@ -169,35 +169,6 @@
     }
   });
 </script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper(".clientSwiper", {
-      loop: true,
-      slidesPerView: 2,
-      spaceBetween: 20,
-      autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 3,
-        },
-        768: {
-          slidesPerView: 4,
-        },
-        1024: {
-          slidesPerView: 5,
-        },
-      },
-    });
-  });
-</script>
-
     @livewireScripts
 </body>
-
-{{-- Tes Fitur Automasi --}}
-
 </html>

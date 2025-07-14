@@ -2,7 +2,7 @@
     <section id="hero" class="hero section dark-background">
   @if($hero->background_image)
     <img src="{{ asset('storage/' . $hero->background_image) }}" alt="Hero Background" data-aos="fade-in"
-         style="width: 100%; height: auto; max-height: 700px; object-fit: cover;">
+         style="width: 100%; height: 100%; max-height: auto; object-fit: cover;">
   @endif
 
   <div class="container d-flex flex-column align-items-center">

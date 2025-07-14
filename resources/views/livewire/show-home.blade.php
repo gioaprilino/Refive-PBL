@@ -21,7 +21,7 @@
     <!-- Clients Section -->
     <section id="clients" class="clients section light-background">
       <div class="container" data-aos="fade-up">
-        <div class="row gy-4">
+        <div class="row justify-content-center gy-4">
           @foreach ($clients as $client)
             <div class="col-xl-2 col-md-3 col-6 client-logo">
               <img src="{{ asset('storage/' . $client->image) }}" class="img-fluid" alt="{{ $client->name }}">

@@ -1,7 +1,5 @@
 <div class="col-lg-4 col-md-12 footer-newsletter">
-  <h4>Our Newsletter</h4>
-  <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-
+  <h4>Newsletter</h4>
   <form wire:submit.prevent="submit" class="php-email-form">
     <div class="newsletter-form">
         <input type="email" wire:model="email" placeholder="Your email">
