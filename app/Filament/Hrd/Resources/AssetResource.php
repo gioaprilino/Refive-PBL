@@ -3,21 +3,19 @@
 namespace App\Filament\Hrd\Resources;
 
 use App\Filament\Hrd\Resources\AssetResource\Pages;
-use App\Filament\Hrd\Resources\AssetResource\RelationManagers;
 use App\Models\Asset;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class AssetResource extends Resource
 {
     protected static ?string $model = Asset::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-archive-box';
+
     protected static ?string $navigationGroup = 'Manajemen Aset';
 
     public static function form(Form $form): Form

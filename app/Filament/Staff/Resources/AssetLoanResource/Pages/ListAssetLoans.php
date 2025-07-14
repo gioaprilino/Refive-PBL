@@ -16,11 +16,11 @@ class ListAssetLoans extends ListRecords
         return parent::getEloquentQuery()
             ->where('user_id', auth()->id());
     }
+
     protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),
         ];
     }
-
 }

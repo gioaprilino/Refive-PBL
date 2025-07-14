@@ -3,21 +3,19 @@
 namespace App\Filament\Hrd\Resources;
 
 use App\Filament\Hrd\Resources\AssetLoanResource\Pages;
-use App\Filament\Hrd\Resources\AssetLoanResource\RelationManagers;
 use App\Models\AssetLoan;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class AssetLoanResource extends Resource
 {
     protected static ?string $model = AssetLoan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
+
     protected static ?string $navigationGroup = 'Manajemen Aset';
 
     public static function form(Form $form): Form
@@ -25,35 +23,35 @@ class AssetLoanResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('asset_id')
-                ->relationship('asset', 'name')
-                ->searchable()
-                ->required(),
+                    ->relationship('asset', 'name')
+                    ->searchable()
+                    ->required(),
 
-            Forms\Components\Select::make('user_id')
-                ->relationship('user', 'name')
-                ->label('Staff')
-                ->searchable()
-                ->required(),
+                Forms\Components\Select::make('user_id')
+                    ->relationship('user', 'name')
+                    ->label('Staff')
+                    ->searchable()
+                    ->required(),
 
-            Forms\Components\DatePicker::make('loan_date')
-                ->label('Tanggal Pinjam')
-                ->required(),
+                Forms\Components\DatePicker::make('loan_date')
+                    ->label('Tanggal Pinjam')
+                    ->required(),
 
-            Forms\Components\DatePicker::make('return_date')
-                ->label('Tanggal Kembali'),
+                Forms\Components\DatePicker::make('return_date')
+                    ->label('Tanggal Kembali'),
 
-            Forms\Components\Select::make('status')
-                ->options([
-                    'pending' => 'Pending',
-                    'approved' => 'Approved',
-                    'rejected' => 'Rejected',
-                    'returned' => 'Returned',
-                ])
-                ->required(),
+                Forms\Components\Select::make('status')
+                    ->options([
+                        'pending' => 'Pending',
+                        'approved' => 'Approved',
+                        'rejected' => 'Rejected',
+                        'returned' => 'Returned',
+                    ])
+                    ->required(),
 
-            Forms\Components\Textarea::make('remarks')
-                ->label('Catatan')
-                ->rows(3),
+                Forms\Components\Textarea::make('remarks')
+                    ->label('Catatan')
+                    ->rows(3),
             ]);
     }
 

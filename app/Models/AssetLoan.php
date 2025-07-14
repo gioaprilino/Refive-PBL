@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AssetLoan extends Model
 {
     protected $fillable = [
-        'asset_id', 'user_id', 'loan_date', 'return_date', 'status', 'remarks'
+        'asset_id', 'user_id', 'loan_date', 'return_date', 'status', 'remarks',
     ];
 
     public function asset()

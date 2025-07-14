@@ -3,20 +3,17 @@
 namespace App\Filament\Staff\Resources;
 
 use App\Filament\Staff\Resources\AssetLoanResource\Pages;
-use App\Filament\Staff\Resources\AssetLoanResource\RelationManagers;
 use App\Models\AssetLoan;
-use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Textarea;
-use Filament\Tables\Columns\TextColumn;
 
 class AssetLoanResource extends Resource
 {
@@ -39,23 +36,23 @@ class AssetLoanResource extends Resource
     {
         return $form
             ->schema([
-            Hidden::make('user_id')->default(auth()->id()),
+                Hidden::make('user_id')->default(auth()->id()),
 
-            Select::make('asset_id')
-                ->label('Aset')
-                ->relationship('asset', 'name')
-                ->required(),
+                Select::make('asset_id')
+                    ->label('Aset')
+                    ->relationship('asset', 'name')
+                    ->required(),
 
-            DatePicker::make('loan_date')
-                ->label('Tanggal Pinjam')
-                ->default(now())
-                ->required(),
+                DatePicker::make('loan_date')
+                    ->label('Tanggal Pinjam')
+                    ->default(now())
+                    ->required(),
 
-            DatePicker::make('return_date')
-                ->label('Tanggal Kembali'),
+                DatePicker::make('return_date')
+                    ->label('Tanggal Kembali'),
 
-            Textarea::make('remarks')
-                ->label('Catatan'),
+                Textarea::make('remarks')
+                    ->label('Catatan'),
             ]);
     }
 
@@ -64,14 +61,14 @@ class AssetLoanResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('asset.name')->label('Aset'),
-            TextColumn::make('loan_date')->date(),
-            TextColumn::make('return_date')->date(),
-            TextColumn::make('status')->badge()->color(fn (string $state) => match ($state) {
-                'pending' => 'warning',
-                'approved' => 'success',
-                'rejected' => 'danger',
-                'returned' => 'gray',
-            })
+                TextColumn::make('loan_date')->date(),
+                TextColumn::make('return_date')->date(),
+                TextColumn::make('status')->badge()->color(fn (string $state) => match ($state) {
+                    'pending' => 'warning',
+                    'approved' => 'success',
+                    'rejected' => 'danger',
+                    'returned' => 'gray',
+                }),
             ])
             ->filters([
                 //
