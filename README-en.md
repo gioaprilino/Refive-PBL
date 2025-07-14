@@ -6,7 +6,7 @@
   <a href="https://github.com/gioaprilino/Refive-PBL/network/members"><img src="https://img.shields.io/github/forks/gioaprilino/Refive-PBL.svg?style=for-the-badge" alt="Forks"></a>
 </p>
 <br>
-<h3><a href="README.md">ID</a> | EN</h3>
+<h2 align="center"><a href="README.md">ID</a> | EN</h2>
 
 Official website of PT Tri Virya Nusantara, built using [Laravel](https://laravel.com/) and [Filament Admin](https://filamentphp.com/). This project provides a public company page, content management, and an admin dashboard for managing projects, services, news, staff, and attendance.
 
