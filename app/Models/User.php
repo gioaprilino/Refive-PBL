@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Authenticatable
 {
@@ -77,6 +78,11 @@ class User extends Authenticatable
     public function hasPendingLeaveRequests()
     {
         return $this->leaveRequests()->where('status', 'pending')->exists();
+    }
+
+    public function assetLoans()
+    {
+        return $this->hasMany(AssetLoan::class);
     }
 
     // Helper method to get approved leave requests for a specific date range
