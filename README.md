@@ -1,33 +1,26 @@
 # Tri Virya Nusantara Website
 
-Website resmi PT Tri Virya Nusantara, dibangun menggunakan [Laravel](https://laravel.com/) dan [Filament Admin](https://filamentphp.com/). Proyek ini menyediakan halaman publik perusahaan, manajemen konten, serta dashboard administrasi untuk pengelolaan proyek, layanan, berita, dan staff.
+Website resmi PT Tri Virya Nusantara, dibangun menggunakan [Laravel](https://laravel.com/) dan [Filament Admin](https://filamentphp.com/). Proyek ini menyediakan halaman publik perusahaan, manajemen konten, serta dashboard administrasi untuk pengelolaan proyek, layanan, berita, staff, dan presensi.
 
-## Fitur Utama
+## Third-party / Library yang Digunakan
 
-- **Landing Page**: Informasi perusahaan, layanan, portofolio proyek, tim, dan kontak.
-- **Manajemen Proyek**: CRUD proyek beserta kategori layanan.
-- **Manajemen Staff & Tugas**: Modul HRD untuk mengelola proyek dan tugas karyawan.
-- **Berita & Lowongan**: Publikasi berita dan lowongan pekerjaan.
-- **Presesni**: Sistem presensi staff berbasi shift dan lokasi.
-- **Dashboard Admin**: Panel admin berbasis Filament untuk mengelola seluruh data.
-- **Autentikasi**: Sistem login untuk admin dan staff.
+- [Laravel Framework](https://laravel.com/)
+- [Filament Admin Panel](https://filamentphp.com/)
+- [Livewire](https://livewire.laravel.com/)
+- [Dotswan Filament Map Picker](https://filamentphp.com/plugins/dotswan-map-picker)
+- [Bootstrap](https://getbootstrap.com/)
+- [Swiper.js](https://swiperjs.com/)
+- [Carbon](https://carbon.nesbot.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [PestPHP](https://pestphp.com/) (testing)
+- [PHPUnit](https://phpunit.de/)
 
-## Struktur Direktori
-
-- `app/Filament/Resources/` — Resource Filament untuk admin (Proyek, Layanan, dsb)
-- `app/Filament/Hrd/Resources/` — Resource HRD untuk manajemen proyek & tugas karyawan
-- `app/Filament/Staff/Resources/` — Resource untuk staff (proyek yang di-assign)
-- `app/Livewire/` — Komponen Livewire untuk halaman publik
-- `resources/views/components/layouts/app.blade.php` — Layout utama frontend
-- `public/` — Aset publik (gambar, CSS, JS)
-- `routes/` — Definisi routing aplikasi
-
-## Instalasi
+## Langkah Instalasi & Cara Menjalankan
 
 1. **Clone repository**
    ```sh
-   git clone <repo-url>
-   cd tvn-filament
+   git clone https://github.com/gioaprilino/Refive-PBL.git
+   cd Refive-PBL/src
    ```
 
 2. **Install dependency**
@@ -61,19 +54,20 @@ Website resmi PT Tri Virya Nusantara, dibangun menggunakan [Laravel](https://lar
    php artisan serve
    ```
 
-## Konfigurasi
+8. **(Opsional) Buat storage link untuk upload file**
+   ```sh
+   php artisan storage:link
+   ```
 
-- **File upload**: Pastikan storage sudah di-link dengan `php artisan storage:link`.
-- **Env**: Atur koneksi database dan konfigurasi lain di file `.env`.
+## Akun untuk Akses Login
 
-## Kontribusi
+| Role   | Email              | Password   | Panel      |
+|--------|--------------------|------------|------------|
+| Admin  | admin@tvn.com      | password   | /admin     |
+| HRD    | hrd@tvn.com        | password   | /hrd       |
 
-Pull request dan issue sangat diterima! Silakan fork repo ini dan ajukan perubahan Anda.
-
-## Lisensi
-
-Proyek ini menggunakan [MIT License](https://opensource.org/licenses/MIT).
+> Akun di atas tersedia jika Anda menjalankan seeder bawaan. Silakan sesuaikan di database jika diperlukan.
 
 ---
 
-> Website ini dikembangkan untuk menyelesaikan Proyek PBL Prodi D4 TRPL Jurusan Teknologi Informasi Politeknik Negeri Padang dan kebutuhan internal PT Tri Virya Nusantara.
+Website ini dikembangkan untuk kebutuhan internal PT Tri Virya Nusantara dan sebagai proyek PBL Prodi D4 TRPL Jurusan Teknologi Informasi Politeknik Negeri Padang.
