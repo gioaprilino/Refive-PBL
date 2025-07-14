@@ -1,28 +1,28 @@
 <?php
 
+use App\Livewire\JobApplyPage;
+use App\Livewire\JobDetailPage;
+use App\Livewire\JobPage;
+use App\Livewire\NewsDetailPage;
+use App\Livewire\NewsPage;
+use App\Livewire\Presensi;
+use App\Livewire\ProjectDetail;
+use App\Livewire\ShowHome;
+use App\Livewire\ShowService;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Department\Index as DepartmentIndex;
-use App\Livewire\Department\Create as DepartmentCreate;
-use App\Livewire\Department\Edit as DepartmentEdit;
-use App\Livewire\Position\Index as PositionIndex;
-use App\Livewire\Position\Create as PositionCreate;
-use App\Livewire\Position\Edit as PositionEdit;
-use App\Livewire\Employee\Index as EmployeeIndex;
-use App\Livewire\Employee\Create as EmployeeCreate;
-use App\Livewire\Employee\Edit as EmployeeEdit;
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', ShowHome::class)->name('home');
+Route::get('/service-details/{id}', ShowService::class)->name('servicePage');
+Route::get('/project-details/{id}', ProjectDetail::class)->name('projectPage');
+Route::get('/berita', NewsPage::class)->name('news.index');
+Route::get('/berita/{news}', NewsDetailPage::class)->name('news.show');
+Route::get('/lowongan', JobPage::class)->name('jobs.index');
+Route::get('/lowongan/{job}', JobDetailPage::class)->name('jobs.show');
+Route::get('/lowongan/{job}/apply', JobApplyPage::class)->name('jobs.apply');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('presensi', Presensi::class)->name('presensi');
 });
-
-Route::get('/departments', DepartmentIndex::class)->name('department.index');
-Route::get('/departments/create', DepartmentCreate::class)->name('department.create');
-Route::get('/departments/{id}/edit', DepartmentEdit::class)->name('department.edit');
-
-Route::get('/positions', PositionIndex::class)->name('position.index');
-Route::get('/positions/create', PositionCreate::class)->name('position.create');
-Route::get('/positions/{id}/edit', PositionEdit::class)->name('position.edit');
-
-Route::get('/employees', EmployeeIndex::class)->name('employee.index');
-Route::get('/employees/create', EmployeeCreate::class)->name('employee.create');
-Route::get('/employees/{id}/edit', EmployeeEdit::class)->name('employee.edit');
