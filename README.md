@@ -70,4 +70,41 @@ Website resmi PT Tri Virya Nusantara, dibangun menggunakan [Laravel](https://lar
 
 ---
 
-Website ini dikembangkan untuk kebutuhan internal PT Tri Virya Nusantara dan sebagai proyek PBL Prodi D4 TRPL Jurusan Teknologi Informasi Politeknik Negeri Padang.
+## Cara Berkontribusi & Mengembangkan Project
+
+Jika Anda ingin mengembangkan atau berkontribusi pada project ini, berikut langkah-langkah yang dapat dilakukan:
+
+1. **Star & Fork Repository**
+   - Klik tombol ⭐️ (Star) di halaman repository untuk mendukung project.
+   - Klik tombol Fork untuk membuat salinan repository ke akun GitHub Anda.
+
+2. **Clone Repository Fork**
+   - Clone repository hasil fork ke komputer Anda
+
+3. **Buat Branch Baru**
+   - Buat branch baru untuk fitur atau perbaikan yang ingin Anda tambahkan:
+     ```sh
+     git checkout -b nama-fitur-anda
+     ```
+
+4. **Lakukan Perubahan & Commit**
+   - Lakukan perubahan kode, lalu commit:
+     ```sh
+     git add .
+     git commit -m "Deskripsi perubahan"
+     ```
+
+5. **Push ke GitHub & Pull Request**
+   - Push branch ke repository fork Anda:
+     ```sh
+     git push origin nama-fitur-anda
+     ```
+   - Buka Pull Request ke repository utama.
+
+6. **Diskusi & Review**
+   - Tim Refive-PBL akan melakukan review dan diskusi jika diperlukan sebelum perubahan digabungkan.
+
+---
+
+
+Website ini dikembangkan untuk kebutuhan internal PT. Tri Virya Nusantara dan sebagai proyek PBL Prodi D4 TRPL Jurusan Teknologi Informasi Politeknik Negeri Padang.
