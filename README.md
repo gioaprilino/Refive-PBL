@@ -1,5 +1,13 @@
 # Tri Virya Nusantara Website
 
+<p align="center">
+  <a href="https://github.com/gioaprilino/Refive-PBL/stargazers"><img src="https://img.shields.io/github/stars/gioaprilino/Refive-PBL.svg?style=for-the-badge" alt="Stargazers"></a>
+  <a href="https://github.com/gioaprilino/Refive-PBL/issues"><img src="https://img.shields.io/github/issues/gioaprilino/Refive-PBL.svg?style=for-the-badge" alt="Issues"></a>
+  <a href="https://github.com/gioaprilino/Refive-PBL/network/members"><img src="https://img.shields.io/github/forks/gioaprilino/Refive-PBL.svg?style=for-the-badge" alt="Forks"></a>
+</p>
+<br>
+<h3>ID | <a href="README-en.md">EN</a></h3>
+
 Website resmi PT Tri Virya Nusantara, dibangun menggunakan [Laravel](https://laravel.com/) dan [Filament Admin](https://filamentphp.com/). Proyek ini menyediakan halaman publik perusahaan, manajemen konten, serta dashboard administrasi untuk pengelolaan proyek, layanan, berita, staff, dan presensi.
 
 ## Third-party / Library yang Digunakan
