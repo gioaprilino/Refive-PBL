@@ -31,6 +31,11 @@ class HrdPanelProvider extends PanelProvider
             ->breadcrumbs(false)
             ->databaseNotifications()
             ->databaseNotificationsPolling('5s')
+            ->navigationGroups([
+                'ABSENSI & CUTI',
+                'Manajemen Staff',
+                'Manajemen Aset',
+            ])
             ->colors([
                 'primary' => Color::Red,
             ])

@@ -22,7 +22,13 @@ class AssetLoanResource extends Resource
 {
     protected static ?string $model = AssetLoan::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
+
+    protected static ?string $navigationLabel = 'Pinjaman Aset';
+
+    protected static ?string $modelLabel = 'Pinjaman Aset';
+
+    protected static ?string $pluralModelLabel = 'Pinjaman Aset';
 
     public static function getEloquentQuery(): Builder
     {
